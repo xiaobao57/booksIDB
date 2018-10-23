@@ -1,0 +1,37 @@
+body{
+ 	background-color: #E5E5E5;
+ 	margin-top: 10px;
+ 	margin-bottom: 10px;
+}
+
+.container{
+	background-color: #FFFFFF;
+	border-radius:.75rem!important;
+ 	margin-top: 10px;
+ 	margin-bottom: 10px;
+}
+
+.row{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+/*
+  ===========================================
+  Typography
+  ===========================================
+*/
+
+body{
+	color: #000000;
+	font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.display-1{
+	font-size: 60px;
+	font-weight: 300;
+}
