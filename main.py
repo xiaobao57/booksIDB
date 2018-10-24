@@ -12,9 +12,25 @@ app = Flask(__name__)
 def index():
  return render_template('hello.html')
 
+@app.route('/')
+def about():
+ return render_template('about.html')
+
+#----------------------------------------
+# Books
+#----------------------------------------
+
 @app.route('/sorcerors-stone/')
 def sorcerors_stone():
  return render_template('sorcerors-stone.html')
+
+@app.route('/mistborn/')
+def mistborn():
+ return render_template('mistborn.html')
+
+@app.route('/all-the-pres-men/')
+def all_the_pres_men():
+ return render_template('all-the-pres-men.html')
 
 
 #----------------------------------------

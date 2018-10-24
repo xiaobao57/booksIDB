@@ -1,6 +1,124 @@
 <!doctype html>
-<html>
-<body>
-	<p>Hello palgrav-mac</p>
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/stylesheets/model.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-4.0.0/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/model.css') }}">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+    <title>Mistborn</title>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="{{url_for('index')}}">Hackstreet</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('index')}}">Book</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Author</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Publisher</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('about')}}">About</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">Mistborn</h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid" src="{{ url_for('static', filename='images/mistborn.jpg') }}" alt="Generic placeholder image">
+          </div>
+      </div>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <!-- This entity's related entities -->
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/brandon-sand.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipicing elit. Pelientesque eleifend mi et mi blandit, eu ullamcorper arcu imperdict, Cras </p>
+                  <small class="text-muted">Author: <a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/palgrave-mac.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipicing elit. Pelientesque eleifend mi et mi blandit, eu ullamcorper arcu imperdict, Cras </p>
+                  <small class="text-muted">Publisher: <a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cards for all other entities -->
+            <div class="col-lg-6">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/author-placeholder.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text"><ul>
+                      <li><a href="{{url_for('jk_rowling')}}">JK Rowling</a></li>
+                      <li><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></li>
+                      <li><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></li>
+                    </ul></p>
+                  <small class="text-muted">All Authors</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/publisher-placeholder.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">
+                    <ul>
+                      <li><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></li>
+                      <li><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></li>
+                      <li><a href="{{url_for('pottermore')}}">Pottermore</a></li>
+                    </ul>
+                  </p>
+                  <small class="text-muted">All Publishers</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /. card container -->
+      </div>
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+  </body>
 </html>
