@@ -7,6 +7,10 @@ body {
   text-align: center;
 }
 
+.album-footer.card-img-top{
+	max-height: 250px;
+}
+
 .card-img-top{
 	max-height: 300px;
 }

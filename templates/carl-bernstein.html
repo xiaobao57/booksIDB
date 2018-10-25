@@ -6,7 +6,26 @@
       <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading">Carl Bernstein</h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <p class="lead">
+              <table>
+                <tr>
+                  <td>Name</td>
+                  <td>Born</td>
+                  <td>Education</td>
+                  <td>Wikipedia URL</td>
+                  <td>Book Name</td>
+                  <td>Author Name</td>
+                </tr>
+                <tr>
+                  <td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
+                  <td>1944-02-14</td>
+                  <td>University of Maryland</td>
+                  <td>https://en.wikipedia.org/wiki/Carl_Bernstein"</td>
+                  <td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
+                  <td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
+                </tr>
+              </table>
+            </p>
           </div>
           <div class="col-md-5">
             <img class="featurette-image img-fluid" src="{{ url_for('static', filename='images/carl-bernstein.jpg') }}" alt="Generic placeholder image">
@@ -22,7 +41,6 @@
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" src="{{ url_for('static', filename='images/all-pres-men.jpg') }}" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipicing elit. Pelientesque eleifend mi et mi blandit, eu ullamcorper arcu imperdict, Cras </p>
                   <small class="text-muted">Book: <a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></small>
                 </div>
               </div>
@@ -31,38 +49,7 @@
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" src="{{ url_for('static', filename='images/simon-schuster.jpg') }}" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipicing elit. Pelientesque eleifend mi et mi blandit, eu ullamcorper arcu imperdict, Cras </p>
                   <small class="text-muted">Publisher: <a href="{{url_for('simon_schuster')}}">Simon Schuster</a></small>
-                </div>
-              </div>
-            </div>
-
-            <!-- Cards for all other entities -->
-            <div class="col-lg-6">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ url_for('static', filename='images/book-placeholder.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text"><ul>
-                      <li><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></li>
-                      <li><a href="{{url_for('mistborn')}}">Mistborn</a></li>
-                      <li><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></li>
-                    </ul></p>
-                  <small class="text-muted">All Books</small>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ url_for('static', filename='images/publisher-placeholder.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></li>
-                      <li><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></li>
-                      <li><a href="{{url_for('pottermore')}}">Pottermore</a></li>
-                    </ul>
-                  </p>
-                  <small class="text-muted">All Publishers</small>
                 </div>
               </div>
             </div>

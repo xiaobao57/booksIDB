@@ -6,7 +6,26 @@
       <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading">Mistborn</h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <p class="lead">
+              <table>
+                <tr>
+                  <td>Title</td>
+                  <td>ISBN</td>
+                  <td>Publication Date</td>
+                  <td>Description</td>
+                  <td>Publisher Name</td>
+                  <td>Author Name</td>
+                </tr>
+                <tr>
+                  <td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
+                  <td>1429914564</td>
+                  <td>2010-04-01</td>
+                  <td> Vin has learned to expect betrayal from everyone she meets, and gotten it. She will have to learn to trust, if Kel is to help her master powers of which she never dreamed. This saga dares to ask a simple question: What if the hero of prophecy fails?</td>
+                  <td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
+                  <td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
+                </tr>
+              </table>
+            </p>
           </div>
           <div class="col-md-5">
             <img class="featurette-image img-fluid" src="{{ url_for('static', filename='images/mistborn.jpg') }}" alt="Generic placeholder image">
@@ -22,7 +41,6 @@
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" src="{{ url_for('static', filename='images/brandon-sand.jpg') }}" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipicing elit. Pelientesque eleifend mi et mi blandit, eu ullamcorper arcu imperdict, Cras </p>
                   <small class="text-muted">Author: <a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></small>
                 </div>
               </div>
@@ -31,38 +49,7 @@
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" src="{{ url_for('static', filename='images/palgrave-mac.jpeg') }}" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipicing elit. Pelientesque eleifend mi et mi blandit, eu ullamcorper arcu imperdict, Cras </p>
                   <small class="text-muted">Publisher: <a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></small>
-                </div>
-              </div>
-            </div>
-
-            <!-- Cards for all other entities -->
-            <div class="col-lg-6">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ url_for('static', filename='images/author-placeholder.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text"><ul>
-                      <li><a href="{{url_for('jk_rowling')}}">JK Rowling</a></li>
-                      <li><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></li>
-                      <li><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></li>
-                    </ul></p>
-                  <small class="text-muted">All Authors</small>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ url_for('static', filename='images/publisher-placeholder.jpg') }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></li>
-                      <li><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></li>
-                      <li><a href="{{url_for('pottermore')}}">Pottermore</a></li>
-                    </ul>
-                  </p>
-                  <small class="text-muted">All Publishers</small>
                 </div>
               </div>
             </div>
