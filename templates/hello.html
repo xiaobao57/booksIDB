@@ -4,12 +4,13 @@
 <link rel="stylesheet" href="../static/stylesheets/index.css">
 
 <style type='text/css'>
-	html,body{height:100% !important;width:100% !important; margin:0px; padding:0px;}
+	html,body{height:100% !important;width:100% !important; margin:0; padding:0;}
 
-   .container {height: 400% !important; width: 100% !important;}
+   .container {height: 200% !important; min-width: 100% !important; margin:0; padding:0;}
+   .page {height: 50% !important; min-width:100% !important;}
+
    /* <!-- container height = 100x no of pages
     page height = 100/no of pages --> */
-   .page {height:50% !important; width:100% !important;}
 </style>
 <!-- <li>			
 			
@@ -42,6 +43,12 @@
 			</div>
 		
 	</div>
+
+	<div class="books page">
+		<h1>text test</h1>
+	</div>
+
+
 </div>
 
 {% endblock %}
