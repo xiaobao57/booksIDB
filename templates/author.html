@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+		<h1>Authors</h1>
+
+		<table>
+				<tr>
+					<td>Name</td>
+					<td>Born</td>
+					<td>Education</td>
+					<td>Wikipedia URL</td>
+					<td>Book Name</td>
+					<td>Author Name</td>
+				</tr>
+				<tr>
+					<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
+					<td>1965-07-31</td>
+					<td>University of Exeter</td>
+					<td>https://en.wikipedia.org/wiki/J._K._Rowling</td>
+					<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
+					<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
+				</tr>
+				<tr>
+					<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
+					<td>1974-12-19</td>
+					<td>Brigham Young University</td>
+					<td> https://en.wikipedia.org/wiki/Brandon_Sanderson</td>
+					<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
+					<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
+				</tr>
+				<tr>
+					<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
+					<td>1944-02-14</td>
+					<td>University of Maryland</td>
+					<td>https://en.wikipedia.org/wiki/Carl_Bernstein"</td>
+					<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
+					<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
+				</tr>
+		</table>
+{% endblock %}

@@ -7,7 +7,6 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
  return render_template('hello.html')
@@ -16,7 +15,23 @@ def index():
 def about():
  return render_template('about.html')
 
-###NEeed to delete
+#----------------------------------------
+# Model Pages
+#----------------------------------------
+
+@app.route('/book')
+def book():
+ return render_template('book.html')
+
+@app.route('/author')
+def author():
+ return render_template('author.html')
+
+@app.route('/publisher')
+def publisher():
+ return render_template('publisher.html')
+
+###Need to delete
 #----------------------------------------
 # Test Nav
 #----------------------------------------

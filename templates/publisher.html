@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+		<h1>Publishers</h1>
+
+		<table>
+				<tr>
+					<td>Name</td>
+					<td>Founded</td>
+					<td>Location</td>
+					<td>Wikipedia URL</td>
+					<td>Book Name</td>
+					<td>Author Name</td>
+				</tr>
+				<tr>
+					<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
+					<td>NA</td>
+					<td>http://www.pottermore.com\nshop.pottermore.com</td>
+					<td>https://en.wikipedia.org/wiki/Pottermore</td>
+					<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
+					<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
+				</tr>
+				<tr>
+					<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
+					<td>2000</td>
+					<td>London</td>
+					<td> https://en.wikipedia.org/wiki/Palgrave_Macmillan</td>
+					<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
+					<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
+				</tr>
+				<tr>
+					<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
+					<td>1924</td>
+					<td>120 Avenue of the Americas, Rockefeller Center, NY</td>
+					<td>https://en.wikipedia.org/wiki/Simon_%26_Schuste</td>
+					<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
+					<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
+				</tr>
+		</table>
+{% endblock %}
