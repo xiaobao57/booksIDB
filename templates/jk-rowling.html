@@ -1,6 +1,76 @@
-<!doctype html>
-<html>
-<body>
-	<p>Hello palgrav-mac</p>
-	</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <main role="main" class="container">
+
+      <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">JK Rowling</h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid" src="{{ url_for('static', filename='images/jk-rowl.jpg') }}" alt="Generic placeholder image">
+          </div>
+      </div>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <!-- This entity's related entities -->
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/hpotter.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipicing elit. Pelientesque eleifend mi et mi blandit, eu ullamcorper arcu imperdict, Cras </p>
+                  <small class="text-muted">Book: <a href="{{url_for('sorcerors_stone')}}">Harry Potter and the Sorceror's Stone</a></small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/pottermore.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipicing elit. Pelientesque eleifend mi et mi blandit, eu ullamcorper arcu imperdict, Cras </p>
+                  <small class="text-muted">Publisher: <a href="{{url_for('pottermore')}}">Pottermore</a></small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cards for all other entities -->
+            <div class="col-lg-6">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/book-placeholder.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text"><ul>
+                      <li><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></li>
+                      <li><a href="{{url_for('mistborn')}}">Mistborn</a></li>
+                      <li><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></li>
+                    </ul></p>
+                  <small class="text-muted">All Books</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/publisher-placeholder.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">
+                    <ul>
+                      <li><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></li>
+                      <li><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></li>
+                      <li><a href="{{url_for('pottermore')}}">Pottermore</a></li>
+                    </ul>
+                  </p>
+                  <small class="text-muted">All Publishers</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /. card container -->
+      </div>
+
+    </main><!-- /.container -->
+
+{% endblock %}
