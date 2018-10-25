@@ -1,0 +1,55 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro:400,600);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html {
+    height: 100%;
+}
+  
+body {
+  font-size: 18px;
+  -webkit-text-size-adjust: 100%;
+  color: #7A7C80;
+  min-height: 100%;
+}
+
+.page {
+
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  width : 100%;
+
+}
+
+.picture{
+  /*fixed for all the website*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(../images/books.png) no-repeat;
+    background-size: cover;
+}
+
+.title{
+  top: 10%;
+  left: 50%;
+  color: white;
+}
+  
