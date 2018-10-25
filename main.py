@@ -12,10 +12,19 @@ app = Flask(__name__)
 def index():
  return render_template('hello.html')
 
-@app.route('/')
+@app.route('/about')
 def about():
  return render_template('about.html')
 
+###NEeed to delete
+#----------------------------------------
+# Test Nav
+#----------------------------------------
+
+@app.route('/navtest')
+def navtest():
+ return render_template('navtest.html')
+ 
 #----------------------------------------
 # Books
 #----------------------------------------
