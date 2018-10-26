@@ -1,3 +1,58 @@
+commit 23d62a86361d88001f263a15d0a6c6a4b68453aa
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 20:13:12 2018 -0500
+
+    fixed bottom links
+
+commit b02f712883bfd34ad8ab04825201ea2b50a5abd0
+Merge: 2412992 46bea8f
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 20:04:24 2018 -0500
+
+    Merge branch 'splash'
+
+commit 46bea8fe2351b309f688a2d80be7663fd9224243
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 20:01:28 2018 -0500
+
+    added smoothing
+
+commit 5186187401c50d953d35aa47dc2b7e254bfc1996
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 19:53:06 2018 -0500
+
+    added all tables
+
+commit 28d389fc4235333dfc5d657add9b5a5456a4edf1
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 19:45:00 2018 -0500
+
+    books added
+
+commit 7efc1a811d12cb90d8a6e1ac99561096375969c0
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 19:33:24 2018 -0500
+
+    got links in book added
+
+commit 5bdf0f8e18058f6ecb4603c6dd4fdef240f43862
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 18:12:49 2018 -0500
+
+    removed border fixed page sizes
+
+commit c0c85fbb4e01d7b91eca3e72c0d7ae12bf888362
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 17:20:40 2018 -0500
+
+    got splash page working
+
+commit 24129925e2cac599f49a408b1a3e4b9734f01138
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Oct 25 17:03:46 2018 -0500
+
+    Added IDB1.log of git commits
+
 commit 707a548184ef534973618d2a17e1c1d1f0310545
 Author: Bryan Xiao <bryan.xiao@utexas.edu>
 Date:   Thu Oct 25 16:58:16 2018 -0500
