@@ -6,8 +6,8 @@
 <style type='text/css'>
 	html,body{height:100% !important;width:100% !important; margin:0; padding:0;}
 
-   .container {height: 200% !important; min-width: 100% !important; margin:0; padding:0;}
-   .page {height: 50% !important; min-width:100% !important;}
+   .container {height: 400% !important; min-width: 100% !important; margin:0; padding:0;}
+   .page {height: 25% !important; min-width:100% !important;}
 
    /* <!-- container height = 100x no of pages
     page height = 100/no of pages --> */
@@ -81,6 +81,92 @@
 			</div>
 		</div>
 	</div>
+	<div class="books page picture">
+			<div class="innerdiv">
+				<div class="contentdiv">
+					<h1 class="pagetitle">Author</h1>
+					<div class="hr"><span></span></div>
+					<br>
+					<table>
+							<tr>
+								<td width="20%">Name</td>
+								<td width="20%"> Born</td>
+								<td width="20%">Education</td>
+								<td width="20%">Wikipedia URL</td>
+								<td width="20%">Book Name</td>
+								<td width="20%">Author Name</td>
+							</tr>
+							<tr>
+								<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
+								<td>1965-07-31</td>
+								<td>University of Exeter</td>
+								<td>https://en.wikipedia.org/wiki/J._K._Rowling</td>
+								<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
+								<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
+							</tr>
+							<tr>
+								<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
+								<td>1974-12-19</td>
+								<td>Brigham Young University</td>
+								<td> https://en.wikipedia.org/wiki/Brandon_Sanderson</td>
+								<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
+								<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
+							</tr>
+							<tr>
+								<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
+								<td>1944-02-14</td>
+								<td>University of Maryland</td>
+								<td>https://en.wikipedia.org/wiki/Carl_Bernstein"</td>
+								<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
+								<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="books page picture">
+				<div class="innerdiv">
+					<div class="contentdiv">
+						<h1 class="pagetitle">Publisher</h1>
+						<div class="hr"><span></span></div>
+						<br>
+						<table>
+								<tr>
+									<td width="20%">Name</td>
+									<td width="20%">Founded</td>
+									<td width="20%">Location</td>
+									<td width="20%">Wikipedia URL</td>
+									<td width="20%">Book Name</td>
+									<td width="20%">Author Name</td>
+								</tr>
+								<tr>
+									<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
+									<td>NA</td>
+									<td>http://www.pottermore.com\nshop.pottermore.com</td>
+									<td>https://en.wikipedia.org/wiki/Pottermore</td>
+									<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
+									<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
+								</tr>
+								<tr>
+									<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
+									<td>2000</td>
+									<td>London</td>
+									<td> https://en.wikipedia.org/wiki/Palgrave_Macmillan</td>
+									<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
+									<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
+								</tr>
+								<tr>
+									<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
+									<td>1924</td>
+									<td>120 Avenue of the Americas, Rockefeller Center, NY</td>
+									<td>https://en.wikipedia.org/wiki/Simon_%26_Schuste</td>
+									<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
+									<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
+								</tr>
+						</table>
+					</div>
+				</div>
+			</div>
 
 
 </div>
