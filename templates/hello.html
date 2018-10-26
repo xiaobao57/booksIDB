@@ -36,23 +36,48 @@
 		
 	</div>
 
+
+
 	<div class="books page picture">
 		<div class="innerdiv">
 			<div class="contentdiv">
 				<h1 class="pagetitle">Books</h1>
 				<div class="hr"><span></span></div>
-				<div class="links">
-			
-					<a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a>
-					<br>
-					<a href="{{url_for('mistborn')}}">mistborn</a>
-					<br>
-					<a href="{{url_for('all_the_pres_men')}}">All the President's Men</a>
-					<br>
-					<a href="{{url_for('jk_rowling')}}">JK Rowling</a>
-					<br>
-					<a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a>
-				</div>
+				<br>
+				<table>
+						<tr>
+							<td width="10%">Title</td>
+							<td width="15%">ISBN</td>
+							<td width="15%">Publication Date</td>
+							<td width="25%">Description</td>
+							<td width="15%">Publisher Name</td>
+							<td width="20%">Author Name</td>
+						</tr>
+						<tr>
+							<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
+							<td>9781781100486</td>
+							<td>2015-12-08</td>
+							<td><br>Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin!</td>
+							<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
+							<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
+						</tr>
+						<tr>
+							<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
+							<td>1429914564</td>
+							<td>2010-04-01</td>
+							<td> <br>Vin has learned to expect betrayal from everyone she meets, and gotten it. She will have to learn to trust, if Kel is to help her master powers of which she never dreamed. This saga dares to ask a simple question: What if the hero of prophecy fails?</td>
+							<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
+							<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
+						</tr>
+						<tr>
+							<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
+							<td>9781471104664 	</td>
+							<td>2012-12-11</td>
+							<td> <br>Taut, gripping and fascinating, it is a classic of its kind -- the true story of the events that changed the American presidency.</td>
+							<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
+							<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
+						</tr>
+				</table>
 			</div>
 		</div>
 	</div>
