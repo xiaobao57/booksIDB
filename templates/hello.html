@@ -12,18 +12,10 @@
    /* <!-- container height = 100x no of pages
     page height = 100/no of pages --> */
 </style>
-<!-- <li>			
-			
 
-		<ul><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></ul>
-		<ul><a href="{{url_for('mistborn')}}">mistborn</a></ul>
-		<ul><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></ul>
-		<ul><a href="{{url_for('jk_rowling')}}">JK Rowling</a></ul>
-		<ul><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></ul>
-	</li> -->
 <div id="wholePage" class="container">
 		
-	<div class="picture page">
+	<div class="splash picture page ">
 		<div class="title">
 			<p class="text-center titlefont">Internet Book Database</p>
 		</div>
@@ -44,8 +36,25 @@
 		
 	</div>
 
-	<div class="books page">
-		<h1>text test</h1>
+	<div class="books page picture">
+		<div class="innerdiv">
+			<div class="contentdiv">
+				<h1 class="pagetitle">Books</h1>
+				<div class="hr"><span></span></div>
+				<div class="links">
+			
+					<a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a>
+					<br>
+					<a href="{{url_for('mistborn')}}">mistborn</a>
+					<br>
+					<a href="{{url_for('all_the_pres_men')}}">All the President's Men</a>
+					<br>
+					<a href="{{url_for('jk_rowling')}}">JK Rowling</a>
+					<br>
+					<a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a>
+				</div>
+			</div>
+		</div>
 	</div>
 
 

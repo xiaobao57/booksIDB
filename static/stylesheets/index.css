@@ -20,23 +20,19 @@ body {
 }
 
 .page {
-
+  
 }
 
 .picture{
-  background-color: blue;
+  background: url(../images/books.png) no-repeat;
+  background-size: cover;
 
-  order: 0;
-
+}
+.splash{
   display: flex;
   flex-direction:  column;
   justify-content: center;
   align-items: flex-end;
-
-  background: url(../images/books.png) no-repeat;
-  background-size: cover;
-  
-  margin: -5px;
 }
 
 .title{
@@ -68,11 +64,37 @@ body {
 .scrolldownbtnspace{
   order:3;
   width: 100%;
-  height: 2%;
+  height: 4%;
 }
 
 .books{
-  order: 1;
-  background-color: black;
+ 
 
+}
+
+.innerdiv{
+  width: 80%;
+  height: 100%;
+  background-color: white;
+  margin: auto;
+  padding-top: 4%;
+}
+.contentdiv{
+  margin: auto;
+  color: black;
+  padding: 2%;
+}
+.hr{
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+.pagetitle{
+  font-weight: 300;
+  font-size: 7vh;
+}
+ .links > a{
+  font-size: 4vh;
+  font-weight: 300;
+  color: black;
 }
