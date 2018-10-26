@@ -22,13 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('book')}}">Book</a>
+                  <a class="nav-link" href="#bookid">Book</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('author')}}">Author</a>
+                  <a class="nav-link" href="#authorid">Author</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('publisher')}}">Publisher</a>
+                  <a class="nav-link" href="#publisherid">Publisher</a>
                 </li>
               </ul>
               <ul class="navbar-nav ml-auto">
@@ -51,3 +51,30 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+  
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+  
+            // Store hash
+            var hash = this.hash;
+  
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+  
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+        });
+        </script>
