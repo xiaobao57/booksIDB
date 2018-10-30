@@ -8,19 +8,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
- return render_template('hello.html')
+ return render_template('hello.html',value=-1)
 
 @app.route('/')
 def bookHome():
- return render_template('hello.html', author_div=[], publisher_div=[], book_div=["True"])
+ return render_template('hello.html', value=0)
 
 @app.route('/')
 def authorHome():
- return render_template('hello.html', book_div=[], publisher_div=[], author_div=["True"])
+ return render_template('hello.html',  value=1)
 
 @app.route('/')
 def publisherHome():
- return render_template('hello.html', author_div=[], book_div=[], publisher_div=["True"])
+ return render_template('hello.html',  value=2)
 
 @app.route('/about')
 def about():

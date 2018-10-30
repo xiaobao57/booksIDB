@@ -39,11 +39,11 @@
         </script>
         <title>Hackstreet</title>
       </head>
-    {% if book_div != [] %}          
+    {% if value == 0 %}          
     	<body onload="bookButton()">
-    {% elif publisher_div != [] %} 
+    {% elif value == 1 %} 
     	<body onload="publisherButton()">
-    {% elif author_div != [] %} 
+    {% elif value == 2 %} 
     	<body onload="authorButton()">
    	{% else %}
    		<body>
