@@ -6,21 +6,19 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
-df = pd.read_json('books.json')
-print(df.columns)
-
 class Book(Base):
     
     __tablename__ = 'book'
     
     id = Column(Integer, primary_key=True)
     title = Column(String(250), nullable=False)
-    subtitle = Column(String(250))
     description = Column(String(250))
     isbn = Column(String(250))
-    publishers = Column(String(250))
-    yearID = Column(Integer, ForeignKey('year.id'))
-    authorID = Column(Integer, ForeignKey('author.id'))
+    publishe_date = Column(Integer)
+    google_id = Column(Integer)
+    image_url = Column(String(250))
+    publisherID = Column(Integer, ForeignKey('publisher.id'))
+    authorListID = Column(Integer, ForeignKey('authorList.id'))
     
 class Author(Base):
     
@@ -28,15 +26,36 @@ class Author(Base):
     
     id = Column(Integer, primary_key=True)
     name = Column(String(250),nullable=False)
+    born = Column(Integer)
+    education = Column(String(250))
+    nationality = Column(String(250))
+    alma_mater = Column(String(250))
+    wiki_url = Column(String(250))
+    image_url = Column(String(250))
+    authorListID = Column(Integer, ForeignKey('authorList.id'))
        
     
-class Year(Base):
+class Publisher(Base):
     
-    __tablename__ = 'year'
+    __tablename__ = 'publisher'
     
     id = Column(Integer, primary_key=True)
-    year = Column(Integer, nullable=False)
-    
+    name = Column(String(250), nullable=False)
+    wiki_url = Column(String(250))
+    parent_company = Column(String(250))
+    founded = Column(Integer)
+    description = Column(String(250))
+    image_url = Column(String(250))
+    website = Column(String(250))
+
+class authorList(Base):
+
+    __tablename__ = 'authorList'
+
+    id = Column(Integer, primary_key=True)
+    bookID = Column(Integer, ForeignKey('book.id'))
+    author = Column(Integer, ForeignKey('author.id'))
+
 
 engine = create_engine('sqlite:///books.db')
 Base.metadata.create_all(engine)
