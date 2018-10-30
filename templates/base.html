@@ -22,13 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="#bookid">Book</a>
+                  <a class="nav-link" href="{{url_for('bookHome')}}">Book</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#authorid">Author</a>
+                  <a id="author-button" class="nav-link" href="{{url_for('authorHome')}}">Author</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#publisherid">Publisher</a>
+                  <a id="publisher-button"class="nav-link" href="{{url_for('publisherHome')}}">Publisher</a>
                 </li>
               </ul>
               <ul class="navbar-nav ml-auto">

@@ -4,12 +4,23 @@
 #-----------------------------------------
 from flask import Flask, render_template
 
-
 app = Flask(__name__)
 
 @app.route('/')
 def index():
  return render_template('hello.html')
+
+@app.route('/')
+def bookHome():
+ return render_template('hello.html', author_div=[], publisher_div=[], book_div=["True"])
+
+@app.route('/')
+def authorHome():
+ return render_template('hello.html', book_div=[], publisher_div=[], author_div=["True"])
+
+@app.route('/')
+def publisherHome():
+ return render_template('hello.html', author_div=[], book_div=[], publisher_div=["True"])
 
 @app.route('/about')
 def about():
