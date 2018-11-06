@@ -14,7 +14,7 @@ class Book(Base):
     title = Column(String(250), nullable=False)
     description = Column(String(250))
     isbn = Column(String(250))
-    publishe_date = Column(Integer)
+    publisher_date = Column(String(250))
     google_id = Column(Integer)
     image_url = Column(String(250))
     publisherID = Column(Integer, ForeignKey('publisher.id'))
