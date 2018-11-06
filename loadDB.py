@@ -1,21 +1,54 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from booksDB import Base, Book, Author, Publisher, authorList
+from booksDB import db, Book, Author, Publisher, authorList
 import pandas as pd
 
+''' sqlalchemy code
 engine = create_engine('sqlite:///books.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind = engine)
 session = DBSession()
+'''
 
-def load():
-    author_id=1
-    publisher_id=1
+df = pd.read_json('books.json')
+
+def loadBooks():
+    #author_id=1
+    #publisher_id=1
     book_id = 1
-    authorList_id = 1
+    #authorList_id = 1
         
     for i in range(len(df)):
-        #query here, if author name already exists, dont add info, else increase ID and add
+        
+        book_id = book_id
+        book_title = df['title'][i]
+        book_description = df['description'][i]
+        book_isbn = df['isbn'][i]
+        book_publisher_date = df['publication_date'][i]
+        book_google_id = df['google_id'][i]
+        book_image_url = df['image_url'][i]
+        book_publisherID = publisher_id
+        book_authorListID = authorList_id
+        book_id+=1
+        
+        newBook = Book(id=book_id, title=book_title, description=book_description, isbn=book_isbn, publisher_date=book_publisher_date,
+                       goole_id=books_google_id,image_url=book_image_url, publisher=book_publisherID, authorList=book_authorList)
+        
+        db.session.add(newBook)
+        db.session.commit()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        '''
         author_id = author_id
         try:
             author_born = df['authors'][i][0]['born'] #nullable
@@ -52,15 +85,6 @@ def load():
         author_authorListID = authorList_id
         
         
-        book_id = book_id
-        book_title = df['title'][i]
-        book_description = df['description'][i]
-        book_isbn = df['isbn'][i]
-        book_published_date = df['publication_date'][i]
-        book_google_id = df['google_id'][i]
-        book_image_url = df['image_url'][i]
-        book_publisherID = publisher_id
-        book_authorListID = authorList_id
         
         #query here, if publisher already exists, dont add info, else increase ID and add
         publisher_id = publisher_id
@@ -100,5 +124,6 @@ def load():
         
         book_id+=1
         authorList_id+=1
+        '''
 
 load()
