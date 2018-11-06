@@ -12,12 +12,15 @@ session = DBSession()
 
 df = pd.read_json('books.json')
 
+publisher_id=1
+book_id = 1
+authorList_id = 1
+
 def loadBooks():
-    #author_id=1
-    #publisher_id=1
+    publisher_id=1
     book_id = 1
-    #authorList_id = 1
-        
+    authorList_id = 1
+
     for i in range(len(df)):
         
         book_id = book_id
@@ -29,26 +32,20 @@ def loadBooks():
         book_image_url = df['image_url'][i]
         book_publisherID = publisher_id
         book_authorListID = authorList_id
-        book_id+=1
+        
         
         newBook = Book(id=book_id, title=book_title, description=book_description, isbn=book_isbn, publisher_date=book_publisher_date,
-                       goole_id=books_google_id,image_url=book_image_url, publisher=book_publisherID, authorList=book_authorList)
+                       google_id=book_google_id,image_url=book_image_url, publisherID=book_publisherID, authorListID=book_authorListID)
         
         db.session.add(newBook)
         db.session.commit()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        '''
+
+        book_id+=1
+
+def loadAuthors():
+    author_id = 1
+
+    for i in range(len(df)):
         author_id = author_id
         try:
             author_born = df['authors'][i][0]['born'] #nullable
@@ -82,11 +79,25 @@ def loadBooks():
             author_image_url = df['authors'][i][0]['image_url'] #nullable
         except:
             author_image_url = None
-        author_authorListID = authorList_id
-        
-        
-        
-        #query here, if publisher already exists, dont add info, else increase ID and add
+        authorListID = authorList_id
+
+        authors = db.session.query(Author).all()
+        aList = []
+        for author in authors:
+            aList.append(author.name)
+            
+        if author_name not in aList:
+            newAuth = Author(id=author_id, name=author_name, born=author_born, nationality=author_nationality,
+                education=author_education, alma_mater=author_alma_mater, wiki_url=author_wiki_url,
+                image_url=author_image_url,authorListID=authorListID)
+            db.session.add(newAuth)
+            db.session.commit()
+            author_id += 1
+
+def loadPublishers():
+    publisher_id = 1
+
+    for i in range(len(df)):
         publisher_id = publisher_id
         publisher_name = df['publishers'][i][0]['name']
         try:
@@ -117,13 +128,20 @@ def loadBooks():
             publisher_website = df['publishers'][i][0]['website'] #nullable
         except:
             publisher_website = None
-        
-        authorList_id = authorList_id
-        authorList_bookID = book_id
-        authorList_authorID = author_id
-        
-        book_id+=1
-        authorList_id+=1
-        '''
 
-load()
+        publishers = db.session.query(Publisher).all()
+        pList = []
+        for publisher in publishers:
+            pList.append(publisher.name)
+            
+        if publisher_name not in pList:
+            newPub = Publisher(id=publisher_id,name=publisher_name,wiki_url=publisher_wiki_url,
+                parent_company=publisher_parent_company,founded=publisher_founded,description=publisher_description,
+                image_url=publisher_image_url,website=publisher_website)
+            db.session.add(newPub)
+            db.session.commit()
+            publisher_id += 1
+
+loadPublishers()
+loadAuthors()
+loadBooks()

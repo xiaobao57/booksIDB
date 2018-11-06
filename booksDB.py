@@ -8,6 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:[PASSWORD]@localhost:[PORT]/[DB NAME]')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:rwbYRuby@localhost:5433/testbookdb')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -18,13 +19,13 @@ class Book(db.Model):
     
     id = Column(Integer, primary_key=True)
     title = Column(String(250), nullable=False)
-    description = Column(String(250))
+    description = Column(String(9999))
     isbn = Column(String(250))
     publisher_date = Column(String(250))
-    google_id = Column(Integer)
+    google_id = Column(String(250))
     image_url = Column(String(250))
-    publisherID = Column(Integer, ForeignKey('publisher.id'))
-    authorListID = Column(Integer, ForeignKey('authorList.id'))
+    publisherID = Column(Integer)
+    authorListID = Column(Integer)
     
 class Author(db.Model):
     
@@ -32,13 +33,13 @@ class Author(db.Model):
     
     id = Column(Integer, primary_key=True)
     name = Column(String(250),nullable=False)
-    born = Column(Integer)
+    born = Column(String(250))
     education = Column(String(250))
     nationality = Column(String(250))
     alma_mater = Column(String(250))
     wiki_url = Column(String(250))
-    image_url = Column(String(250))
-    authorListID = Column(Integer, ForeignKey('authorList.id'))
+    image_url = Column(String(9999))
+    authorListID = Column(Integer)
        
     
 class Publisher(db.Model):
@@ -46,21 +47,21 @@ class Publisher(db.Model):
     __tablename__ = 'publisher'
     
     id = Column(Integer, primary_key=True)
-    name = Column(String(250), nullable=False)
-    wiki_url = Column(String(250))
-    parent_company = Column(String(250))
-    founded = Column(Integer)
-    description = Column(String(250))
-    image_url = Column(String(250))
-    website = Column(String(250))
+    name = Column(String(999), nullable=False)
+    wiki_url = Column(String(999))
+    parent_company = Column(String(999))
+    founded = Column(String(999))
+    description = Column(String(999))
+    image_url = Column(String(999))
+    website = Column(String(999))
 
 class authorList(db.Model):
 
     __tablename__ = 'authorList'
 
     id = Column(Integer, primary_key=True)
-    bookID = Column(Integer, ForeignKey('book.id'))
-    author = Column(Integer, ForeignKey('author.id'))
+    bookID = Column(Integer)
+    authorID = Column(Integer)
 
 db.drop_all()
 db.create_all()
