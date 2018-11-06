@@ -3,11 +3,17 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
+from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+import os
 
-Base = declarative_base()
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:rwbYRuby@localhost:5433/testbookdb')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-class Book(Base):
-    
+class Book(db.Model):
+
     __tablename__ = 'book'
     
     id = Column(Integer, primary_key=True)
@@ -20,7 +26,7 @@ class Book(Base):
     publisherID = Column(Integer, ForeignKey('publisher.id'))
     authorListID = Column(Integer, ForeignKey('authorList.id'))
     
-class Author(Base):
+class Author(db.Model):
     
     __tablename__ = 'author'
     
@@ -35,7 +41,7 @@ class Author(Base):
     authorListID = Column(Integer, ForeignKey('authorList.id'))
        
     
-class Publisher(Base):
+class Publisher(db.Model):
     
     __tablename__ = 'publisher'
     
@@ -48,7 +54,7 @@ class Publisher(Base):
     image_url = Column(String(250))
     website = Column(String(250))
 
-class authorList(Base):
+class authorList(db.Model):
 
     __tablename__ = 'authorList'
 
@@ -56,6 +62,5 @@ class authorList(Base):
     bookID = Column(Integer, ForeignKey('book.id'))
     author = Column(Integer, ForeignKey('author.id'))
 
-
-engine = create_engine('sqlite:///books.db')
-Base.metadata.create_all(engine)
+db.drop_all()
+db.create_all()
