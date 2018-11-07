@@ -3,40 +3,65 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
+from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+import os
 
-Base = declarative_base()
+app = Flask(__name__)
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:[PASSWORD]@[IP ADDRESS]:[PORT]/[DB NAME]')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:hackstreetboys@35.202.39.27:5432/books')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-df = pd.read_json('books.json')
-print(df.columns)
+class Book(db.Model):
 
-class Book(Base):
-    
     __tablename__ = 'book'
     
     id = Column(Integer, primary_key=True)
     title = Column(String(250), nullable=False)
-    subtitle = Column(String(250))
-    description = Column(String(250))
+    description = Column(String(9999))
     isbn = Column(String(250))
-    publishers = Column(String(250))
-    yearID = Column(Integer, ForeignKey('year.id'))
-    authorID = Column(Integer, ForeignKey('author.id'))
+    publisher_date = Column(String(250))
+    google_id = Column(String(250))
+    image_url = Column(String(250))
+    publisherID = Column(Integer)
+    authorListID = Column(Integer)
     
-class Author(Base):
+class Author(db.Model):
     
     __tablename__ = 'author'
     
     id = Column(Integer, primary_key=True)
     name = Column(String(250),nullable=False)
+    born = Column(String(250))
+    education = Column(String(250))
+    nationality = Column(String(250))
+    alma_mater = Column(String(250))
+    wiki_url = Column(String(250))
+    image_url = Column(String(9999))
+    authorListID = Column(Integer)
        
     
-class Year(Base):
+class Publisher(db.Model):
     
-    __tablename__ = 'year'
+    __tablename__ = 'publisher'
     
     id = Column(Integer, primary_key=True)
-    year = Column(Integer, nullable=False)
-    
+    name = Column(String(999), nullable=False)
+    wiki_url = Column(String(999))
+    parent_company = Column(String(999))
+    founded = Column(String(999))
+    description = Column(String(999))
+    image_url = Column(String(999))
+    website = Column(String(999))
 
-engine = create_engine('sqlite:///books.db')
-Base.metadata.create_all(engine)
+class authorList(db.Model):
+
+    __tablename__ = 'authorList'
+
+    id = Column(Integer, primary_key=True)
+    bookID = Column(Integer)
+    authorID = Column(Integer)
+
+db.drop_all()
+db.create_all()
