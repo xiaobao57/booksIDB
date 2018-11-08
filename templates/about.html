@@ -22,13 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('index')}}">Book</a>
+                  <a class="nav-link" href="{{url_for('bookhome')}}">Book</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('index')}}">Author</a>
+                  <a class="nav-link" href="{{url_for('authorhome')}}">Author</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('index')}}">Publisher</a>
+                  <a class="nav-link" href="{{url_for('publisherhome')}}">Publisher</a>
                 </li>
               </ul>
               <ul class="navbar-nav ml-auto">
@@ -49,6 +49,23 @@
 				</div>
 				<div class="col-sm-8">
 					<h1 class="display-1">Hackstreet Boys</h1>
+				</div>
+				<div class="col-sm-2">
+				</div>
+			</div>
+		</section>
+
+		<!-------------------------------------------------
+			Tests
+		--------------------------------------------------->
+		<hr/>
+		<section class= "container">
+			<div class="row">
+				<div class="col-sm-2">
+					<h3>Tests:</h3>
+				</div>
+				<div class="col-sm-8">
+					<p>{{output}}</p>
 				</div>
 				<div class="col-sm-2">
 				</div>
@@ -117,8 +134,6 @@
 		<section class= "container text-center">
 		<div class="row">
 			<div class="col-lg-4">
-			</div>
-			<div class="col-lg-4">
 				<h2>Stats</h2>
 				<p align="left">total no. of commits: 45
 				<br>total no. of issues: 17
@@ -127,9 +142,14 @@
 				<br><a href="https://gitlab.com/blx347811/hackstreet-phase1">GitLab Repo</a>
 				<br><a href="https://gitlab.com/blx347811/hackstreet-phase1/wikis/home">GitLab Wiki</a>
 				</p>
+			</div>
+			<div class="col-lg-4">
+				
 				<h2>Data</h2>
 				<p align="left"> <a href="http://www.cs.utexas.edu/~fares/cs329ef18/CS%20373_files/tutorials/books.json">Book Data Source</a>
 				</p>
+			</div>
+			<div class="col-lg-4">
 				<h2>Tools</h2>
 				<p align="left">Tools used:
 				<br>Bootstrap
@@ -142,7 +162,6 @@
 				<br>Slack
 				<br>SQLAlchemy
 				</p>
-
 			</div>
 		</div>
 		</section>

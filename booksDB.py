@@ -61,6 +61,12 @@ class authorlist(db.Model):
     id = Column(Integer, primary_key=True)
     bookID = Column(Integer)
     authorID = Column(Integer)
+<<<<<<< HEAD
     
 db.drop_all()
 db.create_all()
+=======
+
+#db.drop_all()
+#db.create_all()
+>>>>>>> 1e95c91770e8098943b18033f16ba2504f53fe8a

@@ -7,6 +7,7 @@ from booksDB import app, db, Book, Author, Publisher, authorlist
 from loadDB import loadBooks
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import subprocess
 
 
 @app.route('/')
@@ -16,7 +17,11 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+	p = subprocess.Popen(["python", "test.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+	out, err = p.communicate()
+	output=err+out
+	output = output.decode("utf-8") #convert from byte type to string type
+	return render_template('about.html', output = "<br/>".join(output.split("\n")))
 
 #----------------------------------------
 # Model Pages
@@ -60,12 +65,22 @@ def book(bookid):
     author = db.session.query(Author).filter(Author.id == authorID.authorID).first()
     return render_template('book.html', book = book, author = author) #, author = author)
 
+<<<<<<< HEAD
 # @app.route('/authorhome/<int:authorid>')
 # def authorinfo(authorid):
 #     book = db.session.query(Book).filter(Book.id == bookid).first()
 #     authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
 #     author = db.session.query(Author).filter(Author.id == authorid).first()
 #     return render_template('author.html', author = author)
+=======
+@app.route('/authorhome/<int:authorid>')
+def authorinfo(authorid):
+ 
+    authorBook = db.session.query(authorlist).filter(authorlist.bookID == authorid).first()
+    author = db.session.query(Author).filter(Author.id == authorBook.authorID).first()
+
+    return render_template('author.html', author = author)
+>>>>>>> 1e95c91770e8098943b18033f16ba2504f53fe8a
 
 @app.route('/publisherhome/<int:publisherid>')
 def publisherinfo(publisherid):
