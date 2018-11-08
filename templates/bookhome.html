@@ -82,18 +82,6 @@ a:visited {
 <div id="bookid" class="books page picture">
 	<div class="innerdiv">
 		<div class="contentdiv">
-<<<<<<< HEAD
-			<h1 class="pagetitle">Books</h1>
-			{{books}}
-			<div class="hr"><span></span></div>
-			<br>
-			<table>
-				<tr>
-					<td width="10%">Title</td>
-					<td width="15%">ISBN</td>
-					<td width="15%">Publication Date</td>
-					<td width="25%">Description</td>
-=======
 			<h1 class="auto-style6">Books</h1>
 			<div class="hr"></div>
 			<br class="auto-style7">
@@ -106,42 +94,20 @@ a:visited {
 					<td class="auto-style5" style="width: 28%">Description</td>
 					<td class="auto-style5" style="width: 18%">Publisher Name</td>
 					<td width="20%" class="auto-style5">Author Name</td>
->>>>>>> 1e95c91770e8098943b18033f16ba2504f53fe8a
 				</tr>
 				<caption class="auto-style7">{% for i in books %}
 				<tr>
-<<<<<<< HEAD
-					<td><a href="{{url_for('book',bookid=i.id)}}">{{i.title}}</a></td>
-					<td>{{i.isbn}}</td>
-					<td>{{i.publisher_date}}</td>
-					<td>{{i.description[0:100]}}...</td>
-					<!-- to delete -->
-					<!-- <td><a href="{#{url_for('publisherinfo',publisherid=i.publisherID)}#}">{{i.publisherID}}</a></td> -->
-				
-=======
 					<td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',bookid=i.id)}}">{{i.title}}</a></td>
 					<td class="auto-style3" style="height: 90px; width: 11%">{{i.isbn}}</td>
 					<td class="auto-style3" style="height: 90px; width: 15%">{{i.publisher_date}}</td>
 					<td class="auto-style3" style="height: 90px; width: 28%">{{i.description[0:100]}}...</td>
 					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',publisherid=i.publisherID)}}">{{i.publisherID}}</a></td>
 					<td class="auto-style3" style="height: 90px"><a href="{{url_for('authorinfo',authorid=i.id)}}">authors</a></td> 
->>>>>>> 1e95c91770e8098943b18033f16ba2504f53fe8a
 				</tr>
 				<caption class="auto-style7">{% endfor %}
 			</table>
 		</div>
 	</div>
 </div>
-<<<<<<< HEAD
-<nav aria-label="Page navigation example">
-		<ul class="pagination">
-				{% for i in range(1,booksCount+1) %}
-				<li class="page-item"><a class="page-link" href="{{url_for('bookhome', pagenum = i*10)}}">{{i}}</a></li>
-				{% endfor %}
-		</ul>
-	  </nav>
-{% endblock %}
-=======
 
 <span class="auto-style7">{% endblock %}</span>
->>>>>>> 1e95c91770e8098943b18033f16ba2504f53fe8a
