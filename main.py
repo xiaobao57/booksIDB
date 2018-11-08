@@ -3,11 +3,8 @@
 # creating first flask application
 #-----------------------------------------
 from flask import Flask, render_template
-
 from booksDB import app, db, Book, Author, Publisher
-
 from loadDB import loadBooks
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -44,9 +41,11 @@ def publisherhome():
 #----------------------------------------
 # Books, Authors, Publishers
 #----------------------------------------
-@app.route('/bookhome/')
+
+#@app.route('/bookhome/')
 @app.route('/bookhome/<int:bookid>')
 def bookinfo(bookid):
+ 
  book = db.session.query(Book).filter(Book.id == bookid).first()
  #book = Book.query.filter_by(id=bookid).first()
  return render_template('book.html', book = book)
