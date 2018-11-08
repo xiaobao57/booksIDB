@@ -13,17 +13,15 @@
 					<td width="15%">ISBN</td>
 					<td width="15%">Publication Date</td>
 					<td width="25%">Description</td>
-					<td width="15%">Publisher Name</td>
-					<td width="20%">Author Name</td>
 				</tr>
 				{% for i in books %}
 				<tr>
-					<!-- <td><a href="{#{url_for('bookinfo',bookid=i.id)}}">{{i.title}#}</a></td> -->
+					<td><a href="{{url_for('book',bookid=i.id)}}">{{i.title}}</a></td>
 					<td>{{i.isbn}}</td>
 					<td>{{i.publisher_date}}</td>
 					<td>{{i.description[0:100]}}...</td>
+					<!-- to delete -->
 					<!-- <td><a href="{#{url_for('publisherinfo',publisherid=i.publisherID)}#}">{{i.publisherID}}</a></td> -->
-					<td>{{i.publisherID}}</td> 
 				
 				</tr>
 				{% endfor %}

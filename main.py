@@ -12,7 +12,6 @@ from sqlalchemy.orm import sessionmaker
 @app.route('/')
 def index():
     books = db.session.query(Book).all()
-
     return render_template('hello.html', books = books)
 
 @app.route('/about')
@@ -50,14 +49,13 @@ def publisherhome():
 # Books, Authors, Publishers
 #----------------------------------------
 
-#@app.route('/bookhome/')
-# @app.route('/bookhome/<int:bookid>')
-# def bookinfo(bookid):
- 
-#     book = db.session.query(Book).filter(Book.id == bookid).first()
-#     #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
-#     #author = db.session.query(Author).filter(Author.id == authorID).first()
-#     return render_template('book.html', book = book) #, author = author)
+@app.route('/book/')
+@app.route('/book/<int:bookid>')
+def book(bookid):
+    book = db.session.query(Book).filter(Book.id == bookid).first()
+    #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
+    #author = db.session.query(Author).filter(Author.id == authorID).first()
+    return render_template('book.html', book = book) #, author = author)
 
 # @app.route('/authorhome/<int:authorid>')
 # def authorinfo(authorid):
