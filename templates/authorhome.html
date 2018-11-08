@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="books page picture">
+<div id="authorid" class="books page picture">
 	<div class="innerdiv">
 		<div class="contentdiv">
 			<h1 class="pagetitle">Authors</h1>
@@ -11,19 +11,19 @@
 				<tr>
 					<td width="10%">Name</td>
 					<td width="15%">Born</td>
-					<td width="15%">Education</td>
-					<td width="25%">Nationality</td>
-					<td width="15%">Books</td>
-					<td width="20%">Publisher Name</td>
+					<td width="15%">Alma Mater</td>
+					<td width="25%">Educaiton</td>
+					<td width="15%">Nationality</td>
+					<td width="20%">Picture</td>
 				</tr>
 				{% for i in authors %}
 				<tr>
-					<td>{{i.name}}</td>
+					<td><a href={{i.wiki_url|string}}>{{i.name}}</a></td>
 					<td>{{i.born}}</td>
-					<td>{{i.education}}</td>
-					<td>{{i.nationality}}...</td>
-					<td></td>
-					<td></td>
+					<td>{{i.alma_mater}}</td>
+					<td>{{i.educaiton}}</td>
+					<td>{{i.nationality}}</td>
+					<td><img src={{i.image_url|string}} alt="No Picture :("></td>
 				</tr>
 				{% endfor %}
 			</table>
