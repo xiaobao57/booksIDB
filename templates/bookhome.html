@@ -22,8 +22,8 @@
 					<td>{{i.isbn}}</td>
 					<td>{{i.publisher_date}}</td>
 					<td>{{i.description[0:100]}}...</td>
-					<td>{{i.publisherID}}</td>
-					<td>{{i.authorListID}}</td>
+					<td><a href="{{url_for('publisherinfo',publisherid=i.publisherID)}}">{{i.publisherID}}</a></td>
+					<td><a href="{{url_for('authorinfo',authorid=author.id)}}">{% author %}</a></td>
 				</tr>
 				{% endfor %}
 			</table>

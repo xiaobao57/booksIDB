@@ -3,7 +3,7 @@
 # creating first flask application
 #-----------------------------------------
 from flask import Flask, render_template
-from booksDB import app, db, Book, Author, Publisher
+from booksDB import app, db, Book, Author, Publisher, authorList
 from loadDB import loadBooks
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -11,13 +11,13 @@ from sqlalchemy.orm import sessionmaker
 
 @app.route('/')
 def index():
- books = db.session.query(Book).all()
+    books = db.session.query(Book).all()
 
- return render_template('hello.html', books = books)
+    return render_template('hello.html', books = books)
 
 @app.route('/about')
 def about():
- return render_template('about.html')
+    return render_template('about.html')
 
 #----------------------------------------
 # Model Pages
@@ -25,18 +25,20 @@ def about():
 
 @app.route('/bookhome')
 def bookhome():
- books = db.session.query(Book).all()
- return render_template('bookhome.html', books = books)
+    books = db.session.query(Book).all()
+    authors = db.session.query(Author).all()
+    publishers = db.session.query(Publisher).all()
+    return render_template('bookhome.html', books = books)
 
 @app.route('/authorhome')
 def authorhome():
- authors = db.session.query(Author).all()
- return render_template('authorhome.html', authors = authors)
+    authors = db.session.query(Author).all()
+    return render_template('authorhome.html', authors = authors)
 
 @app.route('/publisherhome')
 def publisherhome():
- publishers = db.session.query(Publisher).all()
- return render_template('publisherhome.html', publishers = publishers)
+    publishers = db.session.query(Publisher).all()
+    return render_template('publisherhome.html', publishers = publishers)
 
 #----------------------------------------
 # Books, Authors, Publishers
@@ -46,9 +48,24 @@ def publisherhome():
 @app.route('/bookhome/<int:bookid>')
 def bookinfo(bookid):
  
- book = db.session.query(Book).filter(Book.id == bookid).first()
- #book = Book.query.filter_by(id=bookid).first()
- return render_template('book.html', book = book)
+    book = db.session.query(Book).filter(Book.id == bookid).first()
+    authorID = db.session.query(authorList).filter(authorList.bookID == bookid).first()
+    author = db.session.query(Author).filter(Author.id == authorID).first()
+    return render_template('book.html', book = book, author = author)
+
+@app.route('/authorhome/<int:authorid>')
+def authorinfo(authorid):
+ 
+    # book = db.session.query(Book).filter(Book.id == bookid).first()
+    # authorID = db.session.query(authorList).filter(authorList.bookID == bookid).first()
+    author = db.session.query(Author).filter(Author.id == authorid).first()
+    return render_template('author.html', author = author)
+
+@app.route('/publisherhome/<int:publisherid>')
+def publisherinfo(publisherid):
+
+    publisher = db.session.query(Publisher).filter(Publisher.id == publisherid).first()
+    return render_template('publisher.html', publisher = publisher)
 
 
 ###Need to delete
@@ -58,7 +75,7 @@ def bookinfo(bookid):
 
 @app.route('/navtest')
 def navtest():
- return render_template('navtest.html')
+    return render_template('navtest.html')
  
 #----------------------------------------
 # Books
@@ -66,15 +83,15 @@ def navtest():
 
 @app.route('/sorcerors-stone/')
 def sorcerors_stone():
- return render_template('sorcerors-stone.html')
+    return render_template('sorcerors-stone.html')
 
 @app.route('/mistborn/')
 def mistborn():
- return render_template('mistborn.html')
+    return render_template('mistborn.html')
 
 @app.route('/all-the-pres-men/')
 def all_the_pres_men():
- return render_template('all-the-pres-men.html')
+    return render_template('all-the-pres-men.html')
 
 
 #----------------------------------------

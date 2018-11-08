@@ -31,11 +31,15 @@ def loadBooks():
         book_google_id = df['google_id'][i]
         book_image_url = df['image_url'][i]
         book_publisherID = publisher_id
-        book_authorListID = authorList_id
         
-        
+        publishers = db.session.query(Publisher).all()
+        for publisher in publishers:
+            if df['publishers'][i][0]['name'] == publisher.name:
+                book_publisherID = publisher.id
+                #print(book_publisherID)
+
         newBook = Book(id=book_id, title=book_title, description=book_description, isbn=book_isbn, publisher_date=book_publisher_date,
-                       google_id=book_google_id,image_url=book_image_url, publisherID=book_publisherID, authorListID=book_authorListID)
+                       google_id=book_google_id,image_url=book_image_url, publisherID=book_publisherID)
         
         db.session.add(newBook)
         db.session.commit()
@@ -79,7 +83,6 @@ def loadAuthors():
             author_image_url = df['authors'][i][0]['image_url'] #nullable
         except:
             author_image_url = None
-        authorListID = authorList_id
 
         authors = db.session.query(Author).all()
         aList = []
@@ -89,7 +92,7 @@ def loadAuthors():
         if author_name not in aList:
             newAuth = Author(id=author_id, name=author_name, born=author_born, nationality=author_nationality,
                 education=author_education, alma_mater=author_alma_mater, wiki_url=author_wiki_url,
-                image_url=author_image_url,authorListID=authorListID)
+                image_url=author_image_url)
             db.session.add(newAuth)
             db.session.commit()
             author_id += 1
@@ -142,6 +145,27 @@ def loadPublishers():
             db.session.commit()
             publisher_id += 1
 
+def loadAuthorList():
+    authorListID = 1
+
+    for i in range(len(df)):
+
+        authors = db.session.query(Author).all()
+        for author in authors:
+            if df['authors'][i][0]['name'] == author.name:
+                author_ID = author.id
+
+        books = db.session.query(Book).all()
+        for book in books:
+            if df['title'][i] == book.title:
+                book_ID = book.id
+
+        newAuthList = authorList(id=authorListID, bookID=book_ID, authorID=author_ID)
+        db.session.add(newAuthList)
+        db.session.commit()
+        authorListID += 1
+
 loadPublishers()
-loadAuthors()
 loadBooks()
+loadAuthors()
+loadAuthorList()
