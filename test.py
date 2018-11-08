@@ -1,7 +1,7 @@
 import os
 import sys
 import unittest
-from booksDB import db, Book
+from models import db, Book
 
 class DBTestCases(unittest.TestCase):
 	def test_source_insert_1(self):

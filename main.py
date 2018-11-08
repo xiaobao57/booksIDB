@@ -3,7 +3,7 @@
 # creating first flask application
 #-----------------------------------------
 from flask import Flask, render_template
-from booksDB import app, db, Book, Author, Publisher, authorlist
+from models import app, db, Book, Author, Publisher, authorlist
 from loadDB import loadBooks
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
