@@ -160,11 +160,7 @@ def loadAuthorList():
             if df['title'][i] == book.title:
                 book_ID = book.id
 
-<<<<<<< HEAD
         newAuthList = authorlist(id=authorListID, bookID=book_ID, authorID=author_ID)
-=======
-        newAuthList = authorList(id=authorListID, bookID=book_ID, authorID=author_ID)
->>>>>>> specific_book
         db.session.add(newAuthList)
         db.session.commit()
         authorListID += 1
@@ -172,8 +168,4 @@ def loadAuthorList():
 loadPublishers()
 loadBooks()
 loadAuthors()
-<<<<<<< HEAD
 loadAuthorList()
-=======
-loadAuthorList()
->>>>>>> specific_book

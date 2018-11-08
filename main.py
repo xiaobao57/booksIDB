@@ -3,7 +3,7 @@
 # creating first flask application
 #-----------------------------------------
 from flask import Flask, render_template
-from booksDB import app, db, Book, Author, Publisher, authorList
+from booksDB import app, db, Book, Author, Publisher, authorlist
 from loadDB import loadBooks
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -49,7 +49,7 @@ def publisherhome():
 def bookinfo(bookid):
  
     book = db.session.query(Book).filter(Book.id == bookid).first()
-    authorID = db.session.query(authorList).filter(authorList.bookID == bookid).first()
+    authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
     author = db.session.query(Author).filter(Author.id == authorID).first()
     return render_template('book.html', book = book, author = author)
 
@@ -57,7 +57,7 @@ def bookinfo(bookid):
 def authorinfo(authorid):
  
     # book = db.session.query(Book).filter(Book.id == bookid).first()
-    # authorID = db.session.query(authorList).filter(authorList.bookID == bookid).first()
+    # authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
     author = db.session.query(Author).filter(Author.id == authorid).first()
     return render_template('author.html', author = author)
 
