@@ -8,24 +8,27 @@ from booksDB import app, db, Book, Author, Publisher
 
 from loadDB import loadBooks
 
-app = Flask(__name__)
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
 
 @app.route('/')
 def index():
  books = db.session.query(Book).all()
- return render_template('hello.html',books = books)
 
-# @app.route('/')
-# def bookHome():
-#  return render_template('hello.html', value=0)
+ return render_template('hello.html', books = books)
 
-# @app.route('/')
-# def authorHome():
-#  return render_template('hello.html',  value=1)
+@app.route('/')
+def bookHome():
+ return render_template('hello.html', value=0)
 
-# @app.route('/')
-# def publisherHome():
-#  return render_template('hello.html',  value=2)
+@app.route('/')
+def authorHome():
+ return render_template('hello.html',  value=1)
+
+@app.route('/')
+def publisherHome():
+ return render_template('hello.html',  value=2)
 
 @app.route('/about')
 def about():
