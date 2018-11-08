@@ -2,7 +2,6 @@
 
 {% block content %}
 <div id="bookid" class="books page picture">
-	<h1>Books</h1>
 	<div class="innerdiv">
 		<div class="contentdiv">
 			<h1 class="pagetitle">Books</h1>
@@ -22,7 +21,7 @@
 					<td>{{i.title}}</td>
 					<td>{{i.isbn}}</td>
 					<td>{{i.publisher_date}}</td>
-					<td>{{i.description}}</td>
+					<td>{{i.description[0:100]}}...</td>
 					<td></td>
 					<td></td>
 				</tr>

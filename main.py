@@ -26,18 +26,20 @@ def about():
 # Model Pages
 #----------------------------------------
 
-@app.route('/book')
-def book():
+@app.route('/bookhome')
+def bookhome():
  books = db.session.query(Book).all()
- return render_template('book.html', books = books)
+ return render_template('bookhome.html', books = books)
 
-@app.route('/author')
-def author():
- return render_template('author.html')
+@app.route('/authorhome')
+def authorhome():
+ authors = db.session.query(Author).all()
+ return render_template('authorhome.html', authors = authors)
 
-@app.route('/publisher')
-def publisher():
- return render_template('publisher.html')
+@app.route('/publisherhome')
+def publisherhome():
+ publishers = db.session.query(Publisher).all()
+ return render_template('publisherhome.html', publishers = publishers)
 
 ###Need to delete
 #----------------------------------------
