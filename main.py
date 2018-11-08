@@ -25,10 +25,16 @@ def about():
 
 @app.route('/bookhome/<int:pagenum>')
 def bookhome(pagenum):
-    books = db.session.query(Book).limit(pagenum)
+    books = db.session.query(Book).all()
+    if pagenum < 11:
+        booksToPass = books[:pagenum]
+    else:
+        booksToPass = books[pagenum - 10:pagenum]
+
+    booksCount = books = len(db.session.query(Book).all()) // 10
     # authors = db.session.query(Author).all()
     # publishers = db.session.query(Publisher).all()
-    return render_template('bookhome.html', books = books)
+    return render_template('bookhome.html', books = booksToPass, booksCount = booksCount)
 
 @app.route('/authorhome')
 def authorhome():
