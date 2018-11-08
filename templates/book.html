@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<!--
+		<html>
+		<head> </head>
+		<body>
+			<p>This is the books page</b>
+			<a href="{{url_for('index')}}">Main Menu</a> <br/>
+			<h1>Books</h1>
+			{% if books == [] %}
+				<p>No books exist</p>
+			{% else %}
+				{% for i in books %}
+					<div>
+						{{i.title}}
+						<br/> <br/>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</body>
+	</html>	
+	-->
+
+<div id="bookid" class="books page picture">
+	<div class="innerdiv">
+		<div class="contentdiv">
+			<h1 class="Title">{{book.title}}</h1>
+			<div class="hr"><span></span></div>
+			<br>
+			<h4 class="Author">Author Name</h4>
+			<p></p>
+			<h4 class="Description">Description</h4>
+			<p>{{book.description}}</p>
+			<h6 class="Publisher">Publisher Name</h6>
+			<p></p>
+			<h6 class="Date">Publication Date</h6>
+			<p>{{book.publisher_date}}</p>
+			<h6 class="ISBN">ISBN</h6>
+			<p>{{book.isbn}}</p>
+			<!--
+			<table>
+				<tr>
+					<td width="10%">Title</td>
+					<td width="15%">ISBN</td>
+					<td width="15%">Publication Date</td>
+					<td width="25%">Description</td>
+					<td width="15%">Publisher Name</td>
+					<td width="20%">Author Name</td>
+				</tr>
+				<tr>
+					<td>{{book.title}}</td>
+					<td>{{book.isbn}}</td>
+					<td>{{book.publisher_date}}</td>
+					<td>{{book.description[0:100]}}...</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			-->
+		</div>
+	</div>
+</div>
+{% endblock %}

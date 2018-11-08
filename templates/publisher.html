@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-		<h1>Publishers</h1>
+<div id="publisherid" class="books page picture">
+	<div class="innerdiv">
+		<div class="contentdiv">
+			<h1 class="Title">{{publisher.name}}</h1>
+			<div class="hr"><span></span></div>
+			<br>
+			<h4 class="Author">Publisher Name</h4>
+			<p>{{publisher.name}}</p>
+			<h4 class="Description">Description</h4>
+			<p>{{publisher.description}}</p>
+			<h6 class="Publisher">Publisher Name</h6>
+			<p></p>
+			<h6 class="Date">Founded</h6>
+			<p>{{publisher.founded}}</p>
+		</div>
+	</div>
+</div>
+		<!-- <h1>Publishers</h1>
 
 		<table>
 				<tr>
@@ -36,5 +53,5 @@
 					<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
 					<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
 				</tr>
-		</table>
+		</table> -->
 {% endblock %}

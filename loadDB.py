@@ -36,6 +36,7 @@ def loadBooks():
         for publisher in publishers:
             if df['publishers'][i][0]['name'] == publisher.name:
                 book_publisherID = publisher.id
+                #print(book_publisherID)
 
         newBook = Book(id=book_id, title=book_title, description=book_description, isbn=book_isbn, publisher_date=book_publisher_date,
                        google_id=book_google_id,image_url=book_image_url, publisherID=book_publisherID)
@@ -159,7 +160,11 @@ def loadAuthorList():
             if df['title'][i] == book.title:
                 book_ID = book.id
 
+<<<<<<< HEAD
         newAuthList = authorlist(id=authorListID, bookID=book_ID, authorID=author_ID)
+=======
+        newAuthList = authorList(id=authorListID, bookID=book_ID, authorID=author_ID)
+>>>>>>> specific_book
         db.session.add(newAuthList)
         db.session.commit()
         authorListID += 1
@@ -167,4 +172,8 @@ def loadAuthorList():
 loadPublishers()
 loadBooks()
 loadAuthors()
+<<<<<<< HEAD
 loadAuthorList()
+=======
+loadAuthorList()
+>>>>>>> specific_book
