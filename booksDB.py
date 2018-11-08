@@ -9,8 +9,8 @@ import os
 
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:[PASSWORD]@[IP ADDRESS]:[PORT]/[DB NAME]')
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:hackstreetboys@35.202.39.27:5432/books')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:rwbYRuby@localhost:5433/testbookdb')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:hackstreetboys@35.202.39.27:5432/books')
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:rwbYRuby@localhost:5433/testbookdb')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -62,5 +62,5 @@ class authorlist(db.Model):
     bookID = Column(Integer)
     authorID = Column(Integer)
 
-db.drop_all()
+#db.drop_all()
 db.create_all()
