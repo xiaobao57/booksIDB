@@ -24,8 +24,6 @@
 					<td>{{i.description[0:100]}}...</td>
 					<td><a href="{{url_for('publisherinfo',publisherid=i.publisherID)}}">{{i.publisherID}}</a></td>
 					<td>{{i.publisherID}}</td> 
-					<!-- !!!!!!author info supposed to go here!!!!!!!!!!!!!!!  -->
-					<!-- <td><a href="{{url_for('authorinfo',authorid=author.id)}}">{{author.name}}</a></td> -->
 				</tr>
 				{% endfor %}
 			</table>

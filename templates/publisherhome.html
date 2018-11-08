@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="books page picture">
+<div id="publisherid" class="books page picture">
 	<div class="innerdiv">
 		<div class="contentdiv">
 			<h1 class="pagetitle">Publishers</h1>
@@ -16,7 +16,7 @@
 					<td width="15%">Books</td>
 					<td width="20%">Publisher Name</td>
 				</tr>
-				{% for i in authors %}
+				{% for i in publishers %}
 				<tr>
 					<td>{{i.name}}</td>
 					<td>{{i.wiki_url}}</td>
