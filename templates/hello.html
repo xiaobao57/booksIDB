@@ -27,7 +27,7 @@
 		<body> -->
 		<!-- {% endif %} -->
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
             function bookButton()
             {
                 document.getElementById("book-button").click(); 
@@ -43,14 +43,19 @@
                 document.getElementById("author-button").click(); 
                 // Simulates button click
             }
-        </script>
+        </script> -->
 
 
 
        
 
 <div id="wholePage" class="container">
-		
+		{% for i in books %}
+			<div>
+			{{i.title}}
+			<br/> <br/>
+			</div>
+		{% endfor %}
 	<div class="splash picture page ">
 		<div class="title">
 			<p class="text-center titlefont">Internet Book Database</p>
@@ -82,6 +87,7 @@
 
 
 	<div id="bookid"class="books page picture">
+			
 		<div class="innerdiv">
 			<div class="contentdiv">
 				<h1 class="pagetitle">Books</h1>
