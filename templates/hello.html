@@ -1,20 +1,56 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<link rel="stylesheet" href="../static/stylesheets/index.css">
+		
+		
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+        <link rel="stylesheet" href="../static/stylesheets/index.css">
+		<style type='text/css'>
+			html,body{height:100% !important;width:100% !important; margin:0; padding:0;}
 
-<style type='text/css'>
-	html,body{height:100% !important;width:100% !important; margin:0; padding:0;}
+		   .container {height: 400% !important; min-width: 100% !important; margin:0; padding:0;}
+		   .page {height: 25% !important; min-width:100% !important;}
 
-   .container {height: 400% !important; min-width: 100% !important; margin:0; padding:0;}
-   .page {height: 25% !important; min-width:100% !important;}
+		   /* <!-- container height = 100x no of pages
+		    page height = 100/no of pages --> */
+		
+		</style>
 
-   /* <!-- container height = 100x no of pages
-    page height = 100/no of pages --> */
-</style>
+		<!-- {% if value == -1 %}         
+			<script type="text/javascript">
+				document.getElementById("book-button").click(); 
+			</script> -->
+		<!-- {% elif value == 1 %} 
+		<body onload="publisherButton()">
+		{% elif value == 2 %} 
+		<body onload="authorButton()">
+		{% else %}
+		<body> -->
+		<!-- {% endif %} -->
+
+		<!-- <script type="text/javascript">
+            function bookButton()
+            {
+                document.getElementById("book-button").click(); 
+                // Simulates button click
+            }
+            function publisherButton()
+            {
+                document.getElementById("publisher-button").click(); 
+                // Simulates button click
+            }
+            function authorButton()
+            {
+                document.getElementById("author-button").click(); 
+                // Simulates button click
+            }
+        </script> -->
+
+
+
+       
 
 <div id="wholePage" class="container">
-		
+	
 	<div class="splash picture page ">
 		<div class="title">
 			<p class="text-center titlefont">Internet Book Database</p>
@@ -46,8 +82,15 @@
 
 
 	<div id="bookid"class="books page picture">
+			
 		<div class="innerdiv">
 			<div class="contentdiv">
+					{% for i in books %}
+			<div>
+			{{i.title}}
+			<br/> <br/>
+			</div>
+		{% endfor %}
 				<h1 class="pagetitle">Books</h1>
 				<div class="hr"><span></span></div>
 				<br>
@@ -178,5 +221,43 @@
 
 </div>
 
-{% endblock %}
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+  
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+  
+            // Store hash
+            var hash = this.hash;
+  
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+  
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+        });
+        </script>
 <!-- end of hello.html --> 
+
+{% endblock %}

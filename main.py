@@ -4,12 +4,19 @@
 #-----------------------------------------
 from flask import Flask, render_template
 
+from booksDB import app, db, Book, Author, Publisher
 
-app = Flask(__name__)
+from loadDB import loadBooks
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
 
 @app.route('/')
 def index():
- return render_template('hello.html')
+ books = db.session.query(Book).all()
+
+ return render_template('hello.html', books = books)
 
 @app.route('/about')
 def about():
@@ -19,17 +26,20 @@ def about():
 # Model Pages
 #----------------------------------------
 
-@app.route('/book')
-def book():
- return render_template('book.html')
+@app.route('/bookhome')
+def bookhome():
+ books = db.session.query(Book).all()
+ return render_template('bookhome.html', books = books)
 
-@app.route('/author')
-def author():
- return render_template('author.html')
+@app.route('/authorhome')
+def authorhome():
+ authors = db.session.query(Author).all()
+ return render_template('authorhome.html', authors = authors)
 
-@app.route('/publisher')
-def publisher():
- return render_template('publisher.html')
+@app.route('/publisherhome')
+def publisherhome():
+ publishers = db.session.query(Publisher).all()
+ return render_template('publisherhome.html', publishers = publishers)
 
 ###Need to delete
 #----------------------------------------
