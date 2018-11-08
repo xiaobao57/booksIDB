@@ -50,12 +50,7 @@
        
 
 <div id="wholePage" class="container">
-		{% for i in books %}
-			<div>
-			{{i.title}}
-			<br/> <br/>
-			</div>
-		{% endfor %}
+	
 	<div class="splash picture page ">
 		<div class="title">
 			<p class="text-center titlefont">Internet Book Database</p>
@@ -90,6 +85,12 @@
 			
 		<div class="innerdiv">
 			<div class="contentdiv">
+					{% for i in books %}
+			<div>
+			{{i.title}}
+			<br/> <br/>
+			</div>
+		{% endfor %}
 				<h1 class="pagetitle">Books</h1>
 				<div class="hr"><span></span></div>
 				<br>
