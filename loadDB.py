@@ -165,7 +165,7 @@ def loadAuthorList():
         db.session.commit()
         authorListID += 1
 
-loadPublishers()
-loadBooks()
-loadAuthors()
-loadAuthorList()
+# loadPublishers()
+# loadBooks()
+# loadAuthors()
+# loadAuthorList()
