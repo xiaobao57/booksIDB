@@ -9,7 +9,8 @@ import os
 
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:[PASSWORD]@[IP ADDRESS]:[PORT]/[DB NAME]')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:hackstreetboys@35.202.39.27:5432/books')
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:hackstreetboys@35.202.39.27:5432/books')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:rwbYRuby@localhost:5433/testbookdb')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -25,7 +26,6 @@ class Book(db.Model):
     google_id = Column(String(250))
     image_url = Column(String(250))
     publisherID = Column(Integer)
-    authorListID = Column(Integer)
     
 class Author(db.Model):
     
@@ -39,7 +39,6 @@ class Author(db.Model):
     alma_mater = Column(String(250))
     wiki_url = Column(String(250))
     image_url = Column(String(9999))
-    authorListID = Column(Integer)
        
     
 class Publisher(db.Model):
@@ -55,9 +54,9 @@ class Publisher(db.Model):
     image_url = Column(String(999))
     website = Column(String(999))
 
-class authorList(db.Model):
+class authorlist(db.Model):
 
-    __tablename__ = 'authorList'
+    __tablename__ = 'authorlist'
 
     id = Column(Integer, primary_key=True)
     bookID = Column(Integer)
