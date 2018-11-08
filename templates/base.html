@@ -22,13 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('bookHome')}}">Book</a>
+                  <a class="nav-link" href="{{url_for('book')}}">Book</a>
                 </li>
                 <li class="nav-item">
-                  <a id="author-button" class="nav-link" href="{{url_for('authorHome')}}">Author</a>
+                  <a id="author-button" class="nav-link" href="{{url_for('author')}}">Author</a>
                 </li>
                 <li class="nav-item">
-                  <a id="publisher-button"class="nav-link" href="{{url_for('publisherHome')}}">Publisher</a>
+                  <a id="publisher-button"class="nav-link" href="{{url_for('publisher')}}">Publisher</a>
                 </li>
               </ul>
               <ul class="navbar-nav ml-auto">
@@ -41,56 +41,6 @@
 
           
         {% block content %}{% endblock %}
-
-          <div class="album py-5">
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="../static/images/author-placeholder.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <p class="card-text"><ul>
-                          <li><a href="{{url_for('jk_rowling')}}">JK Rowling</a></li>
-                          <li><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></li>
-                          <li><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></li>
-                        </ul></p>
-                      <small class="text-muted">All Authors</small>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="../static/images/publisher-placeholder.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <p class="card-text">
-                        <ul>
-                          <li><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></li>
-                          <li><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></li>
-                          <li><a href="{{url_for('pottermore')}}">Pottermore</a></li>
-                        </ul>
-                      </p>
-                      <small class="text-muted">All Publishers</small>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="{{ url_for('static', filename='images/book-placeholder.jpg') }}" alt="Card image cap">
-                    <div class="card-body">
-                      <p class="card-text"><ul>
-                          <li><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></li>
-                          <li><a href="{{url_for('mistborn')}}">Mistborn</a></li>
-                          <li><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></li>
-                        </ul></p>
-                      <small class="text-muted">All Books</small>
-                    </div>
-                  </div>
-                </div>
-              
-              </div> <!-- /. row -->
-            </div> <!-- /. card container -->
-          </div> <!-- /. album -->
 
     </body>
 </html>

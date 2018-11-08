@@ -18,18 +18,6 @@ def index():
 
  return render_template('hello.html', books = books)
 
-@app.route('/')
-def bookHome():
- return render_template('hello.html', value=0)
-
-@app.route('/')
-def authorHome():
- return render_template('hello.html',  value=1)
-
-@app.route('/')
-def publisherHome():
- return render_template('hello.html',  value=2)
-
 @app.route('/about')
 def about():
  return render_template('about.html')
@@ -40,7 +28,8 @@ def about():
 
 @app.route('/book')
 def book():
- return render_template('book.html')
+ books = db.session.query(Book).all()
+ return render_template('book.html', books = books)
 
 @app.route('/author')
 def author():
