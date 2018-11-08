@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div id="bookid" class="books page picture">
+<div class="books page picture">
 	<div class="innerdiv">
 		<div class="contentdiv">
-			<h1 class="pagetitle">Books</h1>
+			<h1 class="pagetitle">Authors</h1>
 			<div class="hr"><span></span></div>
 			<br>
 			<table>
 				<tr>
-					<td width="10%">Title</td>
-					<td width="15%">ISBN</td>
-					<td width="15%">Publication Date</td>
-					<td width="25%">Description</td>
-					<td width="15%">Publisher Name</td>
-					<td width="20%">Author Name</td>
+					<td width="10%">Name</td>
+					<td width="15%">Born</td>
+					<td width="15%">Education</td>
+					<td width="25%">Nationality</td>
+					<td width="15%">Books</td>
+					<td width="20%">Publisher Name</td>
 				</tr>
-				{% for i in books %}
+				{% for i in authors %}
 				<tr>
-					<td>{{i.title}}</td>
-					<td>{{i.isbn}}</td>
-					<td>{{i.publisher_date}}</td>
-					<td>{{i.description[0:100]}}...</td>
+					<td>{{i.name}}</td>
+					<td>{{i.born}}</td>
+					<td>{{i.education}}</td>
+					<td>{{i.nationality}}...</td>
 					<td></td>
 					<td></td>
 				</tr>
