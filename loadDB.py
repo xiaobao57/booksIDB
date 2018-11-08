@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from booksDB import db, Book, Author, Publisher, authorList
+from booksDB import db, Book, Author, Publisher, authorlist
 import pandas as pd
 
 ''' sqlalchemy code
