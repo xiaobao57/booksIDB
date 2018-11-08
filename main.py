@@ -41,6 +41,17 @@ def publisherhome():
  publishers = db.session.query(Publisher).all()
  return render_template('publisherhome.html', publishers = publishers)
 
+#----------------------------------------
+# Books, Authors, Publishers
+#----------------------------------------
+@app.route('/bookhome/')
+@app.route('/bookhome/<int:bookid>')
+def bookinfo(bookid):
+ book = db.session.query(Book).filter(Book.id == bookid).first()
+ #book = Book.query.filter_by(id=bookid).first()
+ return render_template('book.html', book = book)
+
+
 ###Need to delete
 #----------------------------------------
 # Test Nav

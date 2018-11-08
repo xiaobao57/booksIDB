@@ -18,13 +18,12 @@
 				</tr>
 				{% for i in books %}
 				<tr>
-					<td>{{i.title}}</td>
+					<td><a href="{{url_for('bookhome/'+i.id|string)}}">{{i.title}}</a></td>
 					<td>{{i.isbn}}</td>
 					<td>{{i.publisher_date}}</td>
 					<td>{{i.description[0:100]}}...</td>
 					<td></td>
 					<td></td>
-				</tr>
 				{% endfor %}
 			</table>
 		</div>
