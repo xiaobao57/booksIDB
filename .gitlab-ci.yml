@@ -9,8 +9,8 @@ services:
   - postgres:9.5
 
 variables:
-  POSTGRES_DB: bookdb
-  DB_STRING: "postgresql://postgres:postgres@postgres/$POSTGRES_DB"
+  POSTGRES_DB: books
+  DB_STRING: "postgres://postgres:hackstreetboys@35.202.39.27:5432/$POSTGRES_DB"
 
 # This is a basic example for a gem or script which doesn't use
 # services such as redis or postgres
