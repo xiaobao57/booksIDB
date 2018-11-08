@@ -26,8 +26,8 @@ def about():
 @app.route('/bookhome')
 def bookhome():
     books = db.session.query(Book).all()
-    authors = db.session.query(Author).all()
-    publishers = db.session.query(Publisher).all()
+    # authors = db.session.query(Author).all()
+    # publishers = db.session.query(Publisher).all()
     return render_template('bookhome.html', books = books)
 
 @app.route('/authorhome')
@@ -49,17 +49,18 @@ def publisherhome():
 def bookinfo(bookid):
  
     book = db.session.query(Book).filter(Book.id == bookid).first()
-    authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
-    author = db.session.query(Author).filter(Author.id == authorID).first()
-    return render_template('book.html', book = book, author = author)
+    #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
+    #author = db.session.query(Author).filter(Author.id == authorID).first()
+    return render_template('book.html', book = book) #, author = author)
 
-@app.route('/authorhome/<int:authorid>')
-def authorinfo(authorid):
+# @app.route('/authorhome/<int:authorid>')
+# def authorinfo(authorid):
  
-    # book = db.session.query(Book).filter(Book.id == bookid).first()
-    # authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
-    author = db.session.query(Author).filter(Author.id == authorid).first()
-    return render_template('author.html', author = author)
+#     book = db.session.query(Book).filter(Book.id == bookid).first()
+#     authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
+#     author = db.session.query(Author).filter(Author.id == authorid).first()
+
+#     return render_template('author.html', author = author)
 
 @app.route('/publisherhome/<int:publisherid>')
 def publisherinfo(publisherid):
