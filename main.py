@@ -23,9 +23,9 @@ def about():
 # Model Pages
 #----------------------------------------
 
-@app.route('/bookhome')
-def bookhome():
-    books = db.session.query(Book).all()
+@app.route('/bookhome/<int:pagenum>')
+def bookhome(pagenum):
+    books = db.session.query(Book).limit(pagenum)
     # authors = db.session.query(Author).all()
     # publishers = db.session.query(Publisher).all()
     return render_template('bookhome.html', books = books)
@@ -45,13 +45,13 @@ def publisherhome():
 #----------------------------------------
 
 #@app.route('/bookhome/')
-@app.route('/bookhome/<int:bookid>')
-def bookinfo(bookid):
+# @app.route('/bookhome/<int:bookid>')
+# def bookinfo(bookid):
  
-    book = db.session.query(Book).filter(Book.id == bookid).first()
-    #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
-    #author = db.session.query(Author).filter(Author.id == authorID).first()
-    return render_template('book.html', book = book) #, author = author)
+#     book = db.session.query(Book).filter(Book.id == bookid).first()
+#     #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
+#     #author = db.session.query(Author).filter(Author.id == authorID).first()
+#     return render_template('book.html', book = book) #, author = author)
 
 # @app.route('/authorhome/<int:authorid>')
 # def authorinfo(authorid):

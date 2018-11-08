@@ -18,11 +18,11 @@
 				</tr>
 				{% for i in books %}
 				<tr>
-					<td><a href="{{url_for('bookinfo',bookid=i.id)}}">{{i.title}}</a></td>
+					<!-- <td><a href="{#{url_for('bookinfo',bookid=i.id)}}">{{i.title}#}</a></td> -->
 					<td>{{i.isbn}}</td>
 					<td>{{i.publisher_date}}</td>
 					<td>{{i.description[0:100]}}...</td>
-					<td><a href="{{url_for('publisherinfo',publisherid=i.publisherID)}}">{{i.publisherID}}</a></td>
+					<!-- <td><a href="{#{url_for('publisherinfo',publisherid=i.publisherID)}#}">{{i.publisherID}}</a></td> -->
 					<td>{{i.publisherID}}</td> 
 				
 				</tr>
@@ -31,5 +31,13 @@
 		</div>
 	</div>
 </div>
-
+<nav aria-label="Page navigation example">
+		<ul class="pagination">
+		  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+		  <li class="page-item"><a class="page-link" href="#">1</a></li>
+		  <li class="page-item"><a class="page-link" href="#">2</a></li>
+		  <li class="page-item"><a class="page-link" href="#">3</a></li>
+		  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+		</ul>
+	  </nav>
 {% endblock %}
