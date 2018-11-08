@@ -24,7 +24,9 @@ def about():
 
 @app.route('/bookhome/<int:pagenum>')
 def bookhome(pagenum):
+    
     books = db.session.query(Book).all()
+    print(books)
     if pagenum < 11:
         booksToPass = books[:pagenum]
     else:
@@ -53,17 +55,16 @@ def publisherhome():
 @app.route('/book/<int:bookid>')
 def book(bookid):
     book = db.session.query(Book).filter(Book.id == bookid).first()
-    #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
-    #author = db.session.query(Author).filter(Author.id == authorID).first()
-    return render_template('book.html', book = book) #, author = author)
+    authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
+    print(authorID, type(authorID))
+    author = db.session.query(Author).filter(Author.id == authorID.authorID).first()
+    return render_template('book.html', book = book, author = author) #, author = author)
 
 # @app.route('/authorhome/<int:authorid>')
 # def authorinfo(authorid):
- 
 #     book = db.session.query(Book).filter(Book.id == bookid).first()
 #     authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
 #     author = db.session.query(Author).filter(Author.id == authorid).first()
-
 #     return render_template('author.html', author = author)
 
 @app.route('/publisherhome/<int:publisherid>')
