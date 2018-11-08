@@ -7,6 +7,7 @@ from booksDB import app, db, Book, Author, Publisher, authorlist
 from loadDB import loadBooks
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import subprocess
 
 
 @app.route('/')
@@ -17,7 +18,11 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+	p = subprocess.Popen(["python", "test.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+	out, err = p.communicate()
+	output=err+out
+	output = output.decode("utf-8") #convert from byte type to string type
+	return render_template('about.html', output = "<br/>".join(output.split("\n")))
 
 #----------------------------------------
 # Model Pages
