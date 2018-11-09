@@ -111,9 +111,9 @@
 					</tr>
 					{% for i in publishers %}
 					<tr>
-						<td class="auto-style3">{{i.name}}</td>
+						<td class="auto-style3"><a href="{{url_for('publisherinfo',publisherid=i.id)}}">{{i.name}}</a></td>
 						<td class="auto-style6">{{i.founded}}</td>
-						<td class="auto-style6"><a href={{i.wiki_url|string}}>More Information</a></td>
+						<td class="auto-style6"><a href={{i.website|string}}>More Information</a></td>
 						{% if i.description != none %}
 						<td class="auto-style6">{{i.description[0:100]}}...</td>
 						{% else %}
