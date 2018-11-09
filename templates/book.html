@@ -1,28 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<!--
-		<html>
-		<head> </head>
-		<body>
-			<p>This is the books page</b>
-			<a href="{{url_for('index')}}">Main Menu</a> <br/>
-			<h1>Books</h1>
-			{% if books == [] %}
-				<p>No books exist</p>
-			{% else %}
-				{% for i in books %}
-					<div>
-						{{i.title}}
-						<br/> <br/>
-					</div>
-				{% endfor %}
-			{% endif %}
-		</body>
-	</html>	
-	-->
 
-<div id="bookid" class="books page picture">
+	<div class="jumbotron">
+		<div class="container">
+		  <h1 class="display-3">{{book.title}}</h1>
+		  <p>ISBN: {{book.isbn}}</p>
+		  <!-- <h4 class="display-4">ISBN: {{book.isbn}}</h4> -->
+		  <p>{{book.description}}</p>
+		</div>
+	  </div>
+	
+	  <div class="container">
+		<!-- Example row of columns -->
+		<div class="row">
+		  <div class="col-lg-4">
+			<p><img src={{book.image_url|string}} alt="No Picture :(" class="auto-style5"></p>
+		  </div>
+		  <div class="col-md-4">
+			<h2 style="text-align: right">Book Information</h2>
+			<p class="lead" style="text-align: right">Date Published: {{book.publisher_date}}</p>
+			<p><a class="btn btn-secondary" href="{{url_for('publisherinfo',publisherid=book.id)}}" role="button" style="float: right;">Publisher Info &raquo;</a></p>
+		  </div>
+		</div>
+
+
+<!-- <div id="bookid" class="books page picture">
 	<div class="innerdiv">
 		<div class="contentdiv">
 			<h1 class="Title">{{book.title}}</h1>
@@ -38,27 +41,7 @@
 			<p>{{book.publisher_date}}</p>
 			<h6 class="ISBN">ISBN</h6>
 			<p>{{book.isbn}}</p>
-			<!--
-			<table>
-				<tr>
-					<td width="10%">Title</td>
-					<td width="15%">ISBN</td>
-					<td width="15%">Publication Date</td>
-					<td width="25%">Description</td>
-					<td width="15%">Publisher Name</td>
-					<td width="20%">Author Name</td>
-				</tr>
-				<tr>
-					<td>{{book.title}}</td>
-					<td>{{book.isbn}}</td>
-					<td>{{book.publisher_date}}</td>
-					<td>{{book.description[0:100]}}...</td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-			-->
 		</div>
 	</div>
-</div>
+</div> -->
 {% endblock %}
