@@ -37,5 +37,11 @@
 </div>
 
 <div class="auto-style1">
-
+	<nav aria-label="Page navigation example">
+		<ul class="pagination">
+				{% for i in range(1,authorsCount+1) %}
+				<li class="page-item"><a class="page-link" href="{{url_for('authorhome', pagenum = i*10)}}">{{i}}</a></li>
+				{% endfor %}
+		</ul>
+	</nav>
 {% endblock %}</div>
