@@ -1,101 +1,10 @@
-
-<head>
-<style type="text/css">
-.ms-list7-1010-main {
-	border: 1.5pt solid gray;
-}
-.ms-list7-1010-tl {
-	font-weight: bold;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: 1.5pt solid black;
-}
-.ms-list7-1010-left {
-	font-weight: bold;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
-.ms-list7-1010-top {
-	font-weight: bold;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: 1.5pt solid black;
-}
-.ms-list7-1010-even {
-	font-weight: normal;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
-.ms-list7-1010-tr {
-	font-weight: bold;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: 1.5pt solid black;
-}
-.auto-style1 {
-	text-align: center;
-}
-.auto-style2 {
-	font-weight: normal;
-	text-align: center;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
-.auto-style3 {
-	font-weight: bold;
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
-.auto-style4 {
-	font-weight: bold;
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: 1.5pt solid black;
-}
-.auto-style5 {
-	font-family: "Times New Roman", Times, serif;
-}
-.auto-style6 {
-	font-weight: normal;
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
-.auto-style7 {
-	border: 1.5pt solid gray;
-	margin-left: 10px;
-}
-</style>
-</head>
-
-<div class="auto-style1">
-	{% extends 'base.html' %}
-
+{% extends 'base.html' %}
 {% block content %}
 </div>
 <div id="authorid" class="books page picture">
 	<div class="innerdiv">
 		<div class="auto-style1">
-			<h1 class="auto-style1">Authors</h1>
+			<h1 class="auto-style6">Authors</h1>
 			<div class="hr"></div>
 			<div class="auto-style1">
 			<br>
@@ -103,23 +12,21 @@
 			<table class="auto-style7">
 				<!-- fpstyle: 30,010101101 -->
 				<tr>
-					<td width="10%">Name</td>
-					<td width="15%">Born</td>
-					<td width="15%">Alma Mater</td>
-					<td width="25%" class="auto-style4">Wiki</td>
-					<td width="15%">Nationality</td>
-					<td width="20%">Picture</td>
-					<td class="auto-style5" style="width: 18%">Book</td>
-					<td class="auto-style5" style="width: 18%">Publisher</td>
+					<td width="10%" class="auto-style4">Name</td>
+					<td width="15%" class="auto-style4">Born</td>
+					<td width="15%" class="auto-style4">Alma Mater</td>
+					<td width="15%" class="auto-style4">Nationality</td>
+					<td width="20%" class="auto-style4">Picture</td>
+					<td width="10%" class="auto-style4">Book</td>
+					<td width="10%" class="auto-style4">Publisher</td>
 				</tr>
 				{% for i in authors %}
 				<tr>
-					<td><a href="{{url_for('authorinfo',passedid=i.id, page='author')}}">{{i.name}}</a></td>
-					<td>{{i.born}}</td>
-					<td>{{i.alma_mater}}</td>
-					<td class="auto-style6"><a href={{i.wiki_url|string}}>More Information</a></td>
-					<td>{{i.nationality}}</td>
-					<td><img src={{i.image_url|string}} alt="No Picture :("></td>
+					<td class="auto-style3"><a href="{{url_for('authorinfo',passedid=i.id, page='author')}}">{{i.name}}</a></td>
+					<td class="auto-style3">{{i.born}}</td>
+					<td class="auto-style3">{{i.alma_mater}}</td>
+					<td class="auto-style3">{{i.nationality}}</td>
+					<td class="auto-style3"><img src={{i.image_url|string}} alt="No Picture :("></td>
 					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('bookinfo',passedid=i.id, page='author')}}">Author's Book</a></td>
 					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',passedid=i.id, page='author')}}">Author's Publisher</a></td>
 				</tr>

@@ -1,4 +1,3 @@
-type="text/css">
 .ms-list7-1010-main {
 	border: 1.5pt solid gray;
 }
@@ -25,6 +24,17 @@ type="text/css">
 }
 .ms-list7-1010-even {
 	font-weight: normal;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.auto-style1 {
+	text-align: center;
+}
+.auto-style2 {
+	font-weight: normal;
+	text-align: center;
 	border-left-style: none;
 	border-right-style: none;
 	border-top-style: none;
@@ -59,7 +69,10 @@ type="text/css">
 }
 .auto-style6 {
 	text-align: center;
+	font-weight: normal;
 	font-family: "Times New Roman", Times, serif;
+	border-style: none;
+	border-bottom: .75pt solid gray;
 }
 .auto-style7 {
 	font-family: "Times New Roman", Times, serif;
