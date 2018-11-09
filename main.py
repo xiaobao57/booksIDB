@@ -31,7 +31,6 @@ def about():
 @app.route('/bookhome/<int:pagenum>')
 def bookhome(pagenum):
     books = db.session.query(Book).all()
-    print(books)
     if pagenum < 11:
         booksToPass = books[:pagenum]
     else:
@@ -41,7 +40,7 @@ def bookhome(pagenum):
 
     return render_template('bookhome.html', books = booksToPass, booksCount = booksCount)
 
-@app.route('/authorhome')
+@app.route('/authorhome/<int:pagenum>')
 def authorhome():
     authors = db.session.query(Author).all()
     return render_template('authorhome.html', authors = authors)
