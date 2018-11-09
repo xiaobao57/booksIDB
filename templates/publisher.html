@@ -1,57 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div id="publisherid" class="books page picture">
-	<div class="innerdiv">
-		<div class="contentdiv">
-			<h1 class="Title">{{publisher.name}}</h1>
-			<div class="hr"><span></span></div>
-			<br>
-			<h4 class="Author">Publisher Name</h4>
-			<p>{{publisher.name}}</p>
-			<h4 class="Description">Description</h4>
-			<p>{{publisher.description}}</p>
-			<h6 class="Publisher">Publisher Name</h6>
-			<p></p>
-			<h6 class="Date">Founded</h6>
-			<p>{{publisher.founded}}</p>
-		</div>
-	</div>
-</div>
-		<!-- <h1>Publishers</h1>
 
-		<table>
-				<tr>
-					<td>Name</td>
-					<td>Founded</td>
-					<td>Location</td>
-					<td>Wikipedia URL</td>
-					<td>Book Name</td>
-					<td>Author Name</td>
-				</tr>
-				<tr>
-					<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
-					<td>NA</td>
-					<td>http://www.pottermore.com\nshop.pottermore.com</td>
-					<td>https://en.wikipedia.org/wiki/Pottermore</td>
-					<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
-					<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
-				</tr>
-				<tr>
-					<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
-					<td>2000</td>
-					<td>London</td>
-					<td> https://en.wikipedia.org/wiki/Palgrave_Macmillan</td>
-					<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
-					<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
-				</tr>
-				<tr>
-					<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
-					<td>1924</td>
-					<td>120 Avenue of the Americas, Rockefeller Center, NY</td>
-					<td>https://en.wikipedia.org/wiki/Simon_%26_Schuste</td>
-					<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
-					<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
-				</tr>
-		</table> -->
+<div class="jumbotron">
+	<div class="container">
+	  <h1 class="display-3">{{publisher.name}}</h1>
+	  <p>{{publisher.description}}</p>
+	  <p><a class="btn btn-primary btn-lg" href={{publisher.website|string}} role="button">Learn more &raquo;</a></p>
+	</div>
+  </div>
+
+  <div class="container">
+	<!-- Example row of columns -->
+	<div class="row">
+	  <div class="col-md-4">
+		<p><img src={{publisher.image_url|string}} alt="No Picture :(" class="auto-style5"></p>
+	  </div>
+	  <div class="col-md-4">
+		<h2>Publisher Information</h2>
+		<p class="lead">Date Founded: {{publisher.founded}}</p>
+		<p><a class="btn btn-secondary" href={{publisher.wiki_url|string}} role="button">Wikipedia &raquo;</a></p>
+	  </div>
+	</div>
+
 {% endblock %}
