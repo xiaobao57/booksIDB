@@ -2,50 +2,47 @@
 
 {% block content %}
 
-<div id="bookid" class="books page picture">
-	<div class="innerdiv">
-		<div class="contentdiv">
-			<h1 class="Author">Author Name</h1>
-			<p>{{author.name}}</p>
-			<h4 class="Born"></h4>
-			<p>{{author.born}}</p>
-		</div>
-	</div>
-</div>
-		<!-- <h1>Authors</h1>
+<div class="jumbotron">
+	<div class="container">
+	  <h1 class="display-3">{{author.name}}</h1>
 
-		<table>
-				<tr>
-					<td>Name</td>
-					<td>Born</td>
-					<td>Education</td>
-					<td>Wikipedia URL</td>
-					<td>Book Name</td>
-					<td>Author Name</td>
-				</tr>
-				<tr>
-					<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
-					<td>1965-07-31</td>
-					<td>University of Exeter</td>
-					<td>https://en.wikipedia.org/wiki/J._K._Rowling</td>
-					<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
-					<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
-				</tr>
-				<tr>
-					<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
-					<td>1974-12-19</td>
-					<td>Brigham Young University</td>
-					<td> https://en.wikipedia.org/wiki/Brandon_Sanderson</td>
-					<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
-					<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
-				</tr>
-				<tr>
-					<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
-					<td>1944-02-14</td>
-					<td>University of Maryland</td>
-					<td>https://en.wikipedia.org/wiki/Carl_Bernstein"</td>
-					<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
-					<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
-				</tr>
-		</table> -->
+	  <table class="auto-style7">
+		<tr>
+			<td class="auto-style3" style="width: 343px"><img src={{author.image_url|string}} alt="No Picture :(" class="auto-style5"></td>
+			<td class="auto-style3">			
+				<ul style="list-style-type:none">
+					<li class="auto-style4">Date of Birth: {{author.born}}</li>
+					<li class="auto-style4">Nationality: {{author.nationality}}</li>
+					<li class="auto-style4">Education: {{author.education}}</li>
+					<li class="auto-style4">Alma Mater: {{author.alma_mater}}</li>
+					<li>&nbsp;</li>
+					<li class="auto-style5"><a class="btn btn-secondary" href={{author.wiki_url|string}} role="button">Learn More &raquo;</a></li>
+			  </ul> 
+			</td>
+
+<!-- 			  
+			<td class="auto-style6">Date of Birth: {{author.born}}</td>
+			<td class="auto-style6">Date of Birth: {{author.born}}</td>
+			<p><td class="auto-style6">Nationality: {{author.nationality}}</td></p>
+			<p><td class="auto-style6">Education: {{author.education}}</td></p>
+			<p><td class="auto-style6">Alma Mater: {{author.alma_mater}}</td></p>
+			<p><td class="auto-style6"><a class="btn btn-secondary" href={{author.wiki_url|string}} role="button">Learn More &raquo;</a></td></p> -->
+		</tr>
+	 </table>
+
+	</div>
+  </div>
+
+  <!-- <div class="container">
+	<div class="row">
+	  <div class="col-md-4">
+		<h2>Author Information</h2>
+		<p class="lead">Date of Birth: {{author.born}}</p>
+		<p class="lead">Nationality: {{author.nationality}}</p>
+		<p class="lead">Education: {{author.education}}</p>
+		<p class="lead">Alma Mater: {{author.alma_mater}}</p>
+		<p><a class="btn btn-secondary" href={{author.wiki_url|string}} role="button">Learn More &raquo;</a></p>
+	  </div>
+	</div> -->
+
 {% endblock %}

@@ -108,7 +108,7 @@ def loadPublishers():
         except:
             publisher_wiki_url = None
         try:
-            publisher_parent_company = df['publishers'][i][0]['parent_company'] #nullable
+            publisher_parent_company = df['publishers'][i][0]['parent company'] #nullable
         except:
             publisher_parent_company = None
         try:

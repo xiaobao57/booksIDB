@@ -1,4 +1,3 @@
-{% extends 'base.html' %}
 
 {% block content %}
 <div id="publisherid" class="books page picture">
@@ -10,9 +9,10 @@
 			<table>
 				<tr>
 					<td width="10%">Name</td>
-					<td width="15%">Wiki URL</td>
-					<td width="15%">Founded</td>
-					<td width="25%">Parent Company</td>
+					<td width="15%" class="auto-style4">Date Founded</td>
+					<td width="15%" class="auto-style4">Website</td>
+					<td width="15%" class="auto-style4">Description</td>
+					<td width="20%" class="auto-style4">Picture</td>
 					<td width="15%">Book</td>
 					<td width="15%">Author</td>
 				</tr>
@@ -22,6 +22,15 @@
 					<td>{{i.wiki_url}}</td>
 					<td>{{i.founded}}</td>
 					<td>{{i.parent_company}}...</td>
+					<td class="auto-style6">{{i.founded}}</td>
+					<td class="auto-style6"><a href={{i.website|string}}>More Information</a></td>
+					{% if i.description != none %}
+					<td class="auto-style6">{{i.description[0:100]}}...</td>
+					{% else %}
+					<td class="auto-style6">No Description Available :(</td>
+					{% endif %}
+					<td class="auto-style2">
+					<img src={{i.image_url|string}} alt="No Picture :(" class="auto-style5"></td>
 					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('bookinfo',passedid=i.id, page='publisher')}}">Book</a></td></td>
 					<td><a href="{{url_for('authorinfo',passedid=i.id, page='publisher')}}">Author</a></td>
 				</tr>
@@ -30,5 +39,5 @@
 		</div>
 	</div>
 </div>
-
-{% endblock %}
+	{% endblock %}
+	
