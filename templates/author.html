@@ -4,25 +4,28 @@
 
 <div class="jumbotron">
 	<div class="container">
-	  <h1 class="display-3">{{author.name}}</h1>
-
-	  <table class="auto-style7">
-		<tr>
-			<td class="auto-style3" style="width: 343px"><img src={{author.image_url|string}} alt="No Picture :(" class="auto-style5"></td>
-			<td class="auto-style3">			
-				<ul style="list-style-type:none">
-					<li class="auto-style4">Date of Birth: {{author.born}}</li>
-					<li class="auto-style4">Nationality: {{author.nationality}}</li>
-					<li class="auto-style4">Education: {{author.education}}</li>
-					<li class="auto-style4">Alma Mater: {{author.alma_mater}}</li>
-					<li>&nbsp;</li>
-					<li class="auto-style5"><a class="btn btn-secondary" href={{author.wiki_url|string}} role="button">Learn More &raquo;</a></li>
-			  </ul> 
-			</td>
-		</tr>
-	 </table>
-
+		<div class="row">
+			<div class="col-sm-6">
+  				<h1 class="display-3">{{author.name}}</h1>
+  				<img src={{author.image_url|string}} alt="No Picture :(" class="auto-style5">
+			</div>
+			<div class="col-sm-6">
+				<table>
+					<tr>
+						<td>			
+							<ul style="list-style-type:none">
+								<li>Date of Birth: {{author.born}}</li>
+								<li>Nationality: {{author.nationality}}</li>
+								<li>Education: {{author.education}}</li>
+								<li>Alma Mater: {{author.alma_mater}}</li>
+								<li><a class="btn btn-secondary" href={{author.wiki_url|string}} role="button">Learn More &raquo;</a></li>
+						  </ul> 
+						</td>
+					</tr>
+				 </table>
+			</div>
+		</div>
 	</div>
-  </div>
+</div>
 
 {% endblock %}

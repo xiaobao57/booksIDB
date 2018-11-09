@@ -1,0 +1,607 @@
+commit 64c92bea9f70a8b190104ecd0d2d87d0de96c0d6
+Merge: 68b2c4f 9d4941d
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 20:12:28 2018 -0600
+
+    subpage styling
+
+commit 68b2c4f695df5c66581158f79aaa93221bf869bb
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 20:10:38 2018 -0600
+
+    Styled model pages
+
+commit 9d4941da77043e2e4cf1b63194133391d507215b
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 20:08:58 2018 -0600
+
+    fixed book subpages
+
+commit 24a0b2823e2d890239225a01c338de9b1b5c80a5
+Merge: 49bae63 b17f306
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 19:49:03 2018 -0600
+
+    merge with connections
+
+commit 49bae63d1a3e47303de414f962cf1eeb10b930ca
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 19:42:38 2018 -0600
+
+    Made routing from model pages to other models work
+
+commit b17f306593d2f176ab0046ad0d9e3c8072e22218
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 19:39:06 2018 -0600
+
+    make subpages pretty
+
+commit bd9ada7ebda8e83c7099b839a5414ebd8c7705c6
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 18:39:39 2018 -0600
+
+    Reversed changes because of dependencies
+
+commit f6774db6e708085ea5e55560aaa0a846db8d107e
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 18:26:54 2018 -0600
+
+    fixed subpage connections
+
+commit 56eaaeadbf053f715dec00e652f62b3f9ab32c47
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 18:19:34 2018 -0600
+
+    fixed table
+
+commit 7cadc38f3dbb96fc00bb2f95d772c819ee4f6b19
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 17:36:47 2018 -0600
+
+    Removed unnecessary routes in main.py
+
+commit b45f93970c0dfc2f2c247fd8f627c3a652ff62e3
+Merge: a26a2cb 90e1d6f
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 17:23:50 2018 -0600
+
+    Merge branch 'master' of gitlab.com:blx347811/hackstreet-phase1
+
+commit a26a2cb446f1321aaf2f7e870a44bf98351fe97e
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 17:23:32 2018 -0600
+
+    Changed import statements to reflect changes in bookDB.py --> models.py
+
+commit 90e1d6ffbcc3298a1628527bb3db8f5e872079ac
+Merge: 74c4488 5885e4d
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Thu Nov 8 17:21:00 2018 -0600
+
+    Merge branch 'master' of https://gitlab.com/blx347811/hackstreet-phase1
+
+commit 5885e4d59da9e6b2df050297dca4b96a468bd758
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 17:20:55 2018 -0600
+
+    Fixed gitlab.yml file to include the correct connection string
+
+commit 74c44889f976ed428e66ecf0048202151850e76d
+Merge: d500936 be23cad
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Thu Nov 8 17:20:55 2018 -0600
+
+    Merge branch 'master' of https://gitlab.com/blx347811/hackstreet-phase1
+
+commit be23cad426cd166263255579cd2660396330db0f
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 17:16:19 2018 -0600
+
+    Renamed bookDB.py to models.py, deleted local database file, and created models.html with pydoc
+
+commit d500936a22edef4b574f3bc1d960954fcdfe9bf7
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Thu Nov 8 17:15:50 2018 -0600
+
+    added pagination on books merge
+
+commit 1e95c91770e8098943b18033f16ba2504f53fe8a
+Merge: 82df1ad 4917a93
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 16:59:19 2018 -0600
+
+    Merge branch 'connections'
+
+commit 82df1ad3b6005799a48dfa00c515aebeebffe1c5
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Nov 8 16:50:05 2018 -0600
+
+    Added unit tests to about.html
+
+commit 4917a93826584a3594176b0884bbb0ca272f2db1
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 15:55:08 2018 -0600
+
+    fixed authorhome page with pictures
+
+commit 589f4b6d0481e0298ae5d57cf285a4042ae0f8df
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 13:47:58 2018 -0600
+
+    should work now
+
+commit 9e5154e5a36be116d1b999b122c9dde257f0151a
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 13:39:02 2018 -0600
+
+    got everything running
+
+commit 24d771592aa4a75a763cf3cff14b733f34dacebf
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 13:23:42 2018 -0600
+
+    not working
+
+commit 7c2b5b8a3b0f51faec885e6dcd7f2e841e9b1914
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 12:34:46 2018 -0600
+
+    fixed some conlicts that were showing up
+
+commit 54690da0e55f1fb7b9eadc3a8bac86cc0278b9df
+Merge: 8e583e0 fc84b7a
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 12:02:57 2018 -0600
+
+    merge specific_page with master
+
+commit fc84b7a782cb6aa9e348bd4c1f5ef12eaf3bfab3
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 11:37:45 2018 -0600
+
+    added dynamic author and publisher pages
+
+commit 9ba54ef9f4cbbfa0121493e18dbf61601684412c
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 00:49:19 2018 -0600
+
+    got rid of ItDangerous in requirements.txt
+
+commit 3b2a8c6928ea48e0f468553339fc266a60fc8aad
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Thu Nov 8 00:39:23 2018 -0600
+
+    fixed the subpages for book
+
+commit baf91a438293afd0c9d5a7b5cbf6f1e8e83c38c3
+Author: Eric Lu <elu@wireless-10-147-168-115.public.utexas.edu>
+Date:   Wed Nov 7 20:37:25 2018 -0600
+
+    book subpage, still working on bookhome
+
+commit 8e583e07fc1591a009c74cf144a301ba98d9bd0f
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Nov 7 19:43:20 2018 -0600
+
+    Added unit tests
+
+commit f5a8ca76eac68d5e5e3cc9fe31ecfb7a9e53752d
+Merge: 53e9e22 58b9f4f
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 19:10:08 2018 -0600
+
+    Merge branch 'master' of https://gitlab.com/blx347811/hackstreet-phase1
+
+commit 53e9e22ce0a499813f1e11de9e5284bd875a005c
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 19:09:59 2018 -0600
+
+    Save
+
+commit 58b9f4f2f0612e5364badb301ca7cc039515a9e9
+Merge: 0dc80dd b22dced
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Nov 7 19:07:15 2018 -0600
+
+    Added connection strings in booksDB.py
+
+commit 0dc80dd1b77510058a283286c8394cae04d8f29e
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Nov 7 19:04:31 2018 -0600
+
+    updated booksDB and loadDB, fully loaded data (On localhost, needs to be uploaded to cloud)
+
+commit b22dceda41c9b2c902f151280b343d510866b181
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 19:02:02 2018 -0600
+
+    Changed navbar and main.py urls
+
+commit b747ca10bede679d0e5a03f403a399da1c910b22
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 18:55:07 2018 -0600
+
+    final
+
+commit ae4aa0553382c74c9a29c1517c184a78482d4b53
+Merge: c1f8fa9 9c28220
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 18:43:15 2018 -0600
+
+    Merge branch 'pagination' of https://gitlab.com/blx347811/hackstreet-phase1 into pagination
+
+commit c1f8fa9c8a0d8951383462d2c9da20caeea85fec
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 18:42:40 2018 -0600
+
+    seperated pages
+
+commit 9c2822030ae4065f87fdc8f9786c8ad1603a38a6
+Author: Eric Lu <elu@wireless-10-147-168-115.public.utexas.edu>
+Date:   Wed Nov 7 18:26:26 2018 -0600
+
+    added CI yml file
+
+commit a4cfe1e90cb83a6d1c1194d5581e39bc8aac322d
+Author: Eric Lu <elu@wireless-10-147-168-115.public.utexas.edu>
+Date:   Wed Nov 7 18:20:53 2018 -0600
+
+    added requirements to requirements for dana
+
+commit 6a1ed7b2c2f35999e1ae6826666645be507b4414
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 18:14:21 2018 -0600
+
+    changes
+
+commit acc85a914c5450f286cf57ea86ac87213ec16a31
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 18:11:46 2018 -0600
+
+    got connection to db
+
+commit 27de952f4795980e2f13fb2ab550ac9b16205fbf
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 18:02:18 2018 -0600
+
+    added imports
+
+commit 8420b2de87231c6a5664966b0fde11f534a79341
+Merge: bec5546 7422721
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Nov 7 17:14:34 2018 -0600
+
+    Merge branch 'master' of https://gitlab.com/blx347811/hackstreet-phase1 into navbar
+
+commit 742272155e3fd84faa5f50e93cde29c2228394a3
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Wed Nov 7 10:26:42 2018 -0600
+
+    fixed Postgres public connection IP address
+
+commit a0b8bdc3de4dcd169b89c55c80098b50a02a017f
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Nov 7 10:06:34 2018 -0600
+
+    Updated connection string
+
+commit 0943b7b2515345096f13d6e1f96471a86d0d92a4
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Tue Nov 6 17:01:37 2018 -0600
+
+    working postgres database loading
+
+commit 0a939038fff655cc227254c22af4ca3af5ada82a
+Author: Sudeep Swarnapuri <sudeepswarnapuri@utexas.edu>
+Date:   Tue Nov 6 16:07:52 2018 -0600
+
+    testing loading books data
+
+commit 9715ed3a2ba3dfb921a2fdce169fd8944efb9819
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Tue Nov 6 15:57:31 2018 -0600
+
+    Added PostGRESQL code
+
+commit 54f37d44ec8959ffc9122b8a09ca5176e4a6dc56
+Author: Sudeep Swarnapuri <sudeepswarnapuri@utexas.edu>
+Date:   Mon Nov 5 22:26:33 2018 -0600
+
+    segmented data in preparation for entry into DB
+
+commit bec55467caf3d22c5f441034f3875d9a822804d7
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Tue Oct 30 17:03:32 2018 -0500
+
+    Save
+
+commit 83d11a10b95a847af33b7ee58f52666298088c23
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Tue Oct 30 16:48:04 2018 -0500
+
+    prog
+
+commit 3180b8b8e2b193c3b607b6c2e1e9db037f5ae6dd
+Author: Sudeep Swarnapuri <sudeepswarnapuri@utexas.edu>
+Date:   Tue Oct 30 16:44:09 2018 -0500
+
+    updated datamodel w/o data inputed'
+
+commit bd570c5954092a4b4cc9d4fe67b4f3db6b0f9cf7
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Tue Oct 30 16:35:09 2018 -0500
+
+    made navbar changes
+
+commit 6e4a882fc05bdbfadf6104528616ea453cf05ac6
+Author: Eric Lu <elu@Erics-MacBook-Pro.local>
+Date:   Thu Oct 25 21:42:27 2018 -0500
+
+    final commit phase 1
+
+commit 9a2a929032fe57d89023e508555a9f681bef90bb
+Author: Eric Lu <elu@Erics-MacBook-Pro.local>
+Date:   Thu Oct 25 21:31:25 2018 -0500
+
+    finished about page for phase 1
+
+commit 664ffd595c33220ac07b6f3f7dc1053e8a86454e
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 20:17:00 2018 -0500
+
+    updated log
+
+commit 23d62a86361d88001f263a15d0a6c6a4b68453aa
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 20:13:12 2018 -0500
+
+    fixed bottom links
+
+commit b02f712883bfd34ad8ab04825201ea2b50a5abd0
+Merge: 2412992 46bea8f
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 20:04:24 2018 -0500
+
+    Merge branch 'splash'
+
+commit 46bea8fe2351b309f688a2d80be7663fd9224243
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 20:01:28 2018 -0500
+
+    added smoothing
+
+commit 5186187401c50d953d35aa47dc2b7e254bfc1996
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 19:53:06 2018 -0500
+
+    added all tables
+
+commit 28d389fc4235333dfc5d657add9b5a5456a4edf1
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 19:45:00 2018 -0500
+
+    books added
+
+commit 7efc1a811d12cb90d8a6e1ac99561096375969c0
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 19:33:24 2018 -0500
+
+    got links in book added
+
+commit 5bdf0f8e18058f6ecb4603c6dd4fdef240f43862
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 18:12:49 2018 -0500
+
+    removed border fixed page sizes
+
+commit c0c85fbb4e01d7b91eca3e72c0d7ae12bf888362
+Author: Sai Kasam <saikasam98@gmail.com>
+Date:   Thu Oct 25 17:20:40 2018 -0500
+
+    got splash page working
+
+commit 24129925e2cac599f49a408b1a3e4b9734f01138
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Oct 25 17:03:46 2018 -0500
+
+    Added IDB1.log of git commits
+
+commit 707a548184ef534973618d2a17e1c1d1f0310545
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Oct 25 16:58:16 2018 -0500
+
+    Added footer with all 3 cards for authors, publishers, and books
+
+commit b973c92b8081855a344c1fbb59a319fc054f3ce1
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Thu Oct 25 13:56:13 2018 -0500
+
+    Added model pages
+
+commit c024f8720a1c43f1f5b66619df9f3592cd3e5bba
+Author: Eric Lu <elu@Erics-MacBook-Pro.local>
+Date:   Thu Oct 25 00:22:51 2018 -0500
+
+    about page, fixed photo name
+
+commit 28f31efd4c819683d67ad66268f92592ff5f1e31
+Author: Eric Lu <elu@Erics-MacBook-Pro.local>
+Date:   Wed Oct 24 22:47:15 2018 -0500
+
+    added stats,data,tools to about page
+
+commit 9114a0a60df09f808656e4e7c064354c907f5251
+Author: Eric Lu <elu@Erics-MacBook-Pro.local>
+Date:   Wed Oct 24 22:29:54 2018 -0500
+
+    about page
+
+commit 0fc0799a99209098f5cd492e6209d275f4c1f9af
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Wed Oct 24 20:26:24 2018 -0500
+
+    modified app.yaml
+
+commit b46a26309cfb10e16a27243d196c2740e0f1540f
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Oct 24 20:22:36 2018 -0500
+
+    changes
+
+commit 05d9d880025084e2190141c9dd6ee6d071885cdc
+Merge: 199bd0d 7cd2074
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Oct 24 20:06:21 2018 -0500
+
+    merge
+
+commit 199bd0d0695971da200afce8da582acc84b4ae4b
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Oct 24 20:04:58 2018 -0500
+
+    working on splash
+
+commit 7cd20742f6f5e1026e0e3b04c38af34c24fce0d6
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Oct 24 19:59:35 2018 -0500
+
+    Fixed about page
+
+commit b74a17b409027edd9c6b967dfdab1e768960665b
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Oct 24 19:51:53 2018 -0500
+
+    Refactored content pages to incorporate base.html for nav-bar and load scripts
+
+commit 6025081e244b0f034d954577019980919faff3a3
+Merge: 49a3690 cc1c3af
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Oct 24 19:28:14 2018 -0500
+
+    Merge branch 'master' into Models
+
+commit 49a3690f5db75b52c0ff91342daef1d2db858ddc
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Oct 24 19:23:42 2018 -0500
+
+    Filled in content for rest of body pages
+
+commit cc1c3af0a1f042142f4740dc9edf2de9ff83d744
+Author: TheKasam <saikasam98@gmail.com>
+Date:   Wed Oct 24 19:08:15 2018 -0500
+
+    added nav base and modified main
+
+commit 7b7c4236ac55963261d5a1194826056bccc4dbd1
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Oct 24 18:44:44 2018 -0500
+
+    Updated books model pages and Brandon Sanderson
+
+commit 0f4a63dd1a6058f7ce4f7d373e37fb8faccadb41
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Oct 24 12:07:02 2018 -0500
+
+    Made two folders for regular html links and Flask url_for links. Also created all model html pages and updated main.py with handlers for all html files
+
+commit b23ff3ed209f3e58f2ab7e2ce0dbdb6e937bc881
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Oct 24 11:11:05 2018 -0500
+
+    Deleted old main.py and renamed main2.py to main.py
+
+commit 7133f069e57a0f0b8ece8b6393570e1bd461e0d7
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Wed Oct 24 11:09:24 2018 -0500
+
+    Changed folder structure and html links to url_for(static, ...) for flask
+
+commit ea354b6639adbf0291247e949a9ea4d700541b15
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Wed Oct 24 09:47:54 2018 -0500
+
+    changed some html to show books
+
+commit b8243442f8176f1188e0120947e1b9acbad33324
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Wed Oct 24 09:14:04 2018 -0500
+
+    added books1 to app
+
+commit a56fe4fa843113ffc60fa57dc715a16ab9b256ac
+Author: Sudeep Swarnapuri <sudeepswarnapuri@utexas.edu>
+Date:   Tue Oct 23 23:08:43 2018 -0500
+
+    added database setup file and .db file with datamodels book, author, and year
+
+commit f2e058ebb7c7d987261b998034d01fa88d4bc9bc
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Tue Oct 23 22:49:23 2018 -0500
+
+    Updated Bootstrap to 4.0.0 and added model base page
+
+commit 9bf2049ea9ff41ea3d964ed3bf2e1d114383a3d1
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Mon Oct 22 22:03:22 2018 -0500
+
+    Changed stylesheet folder structure and references to custom css be page-specific
+
+commit 0af1fa1fc0eb18f2054659bf45df65b8d91824d6
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Mon Oct 22 21:58:57 2018 -0500
+
+    Added about page and css assets
+
+commit b75b94ffe69f32f78bd31b00894bf5d0b0160c71
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Mon Oct 22 13:54:11 2018 -0500
+
+    remove main1.py
+
+commit 383fc4a413bed88d2318f2eedbd73fc87bf5ac3b
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Mon Oct 22 12:28:10 2018 -0500
+
+    rename main1.py to main2.py
+
+commit 67872589c15c3df933c216bfb47847d0bbe0236d
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Mon Oct 22 12:18:23 2018 -0500
+
+    some more changes to requirements
+
+commit b78f31abc03773a9754198643dce39b67b57f0ed
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Mon Oct 22 12:15:14 2018 -0500
+
+    some changes to requirements
+
+commit e5f8e959f3a9a57ac53495447f3ac06070c0a3d9
+Author: Dana Hsieh <dana_hsieh@utexas.edu>
+Date:   Mon Oct 22 12:03:40 2018 -0500
+
+    requirements.txt file
+
+commit 04ec516362e50a013591454515471f754bac589c
+Author: Sudeep Swarnapuri <sudeepswarnapuri@utexas.edu>
+Date:   Fri Oct 19 14:42:07 2018 -0500
+
+    added more files and stuff
+
+commit 45f3d56dc1f18343fb23f18599e13aa1f00b4684
+Author: Sudeep Swarnapuri <sudeepswarnapuri@utexas.edu>
+Date:   Fri Oct 19 14:25:04 2018 -0500
+
+    added template and main1.py
+
+commit b6fd0b565a633dedb834dc709085128c21e6f2d4
+Author: Sudeep Swarnapuri <ss76857@cs.utexas.edu>
+Date:   Fri Oct 19 14:10:56 2018 -0500
+
+    added dir files
+
+commit 3b04a6409c5f67f63beae37dc7857d70f7d5b3e1
+Author: Bryan Xiao <bryan.xiao@utexas.edu>
+Date:   Fri Oct 19 17:10:53 2018 +0000
+
+    Initial commit

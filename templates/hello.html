@@ -14,40 +14,7 @@
 		    page height = 100/no of pages --> */
 		
 		</style>
-
-		<!-- {% if value == -1 %}         
-			<script type="text/javascript">
-				document.getElementById("book-button").click(); 
-			</script> -->
-		<!-- {% elif value == 1 %} 
-		<body onload="publisherButton()">
-		{% elif value == 2 %} 
-		<body onload="authorButton()">
-		{% else %}
-		<body> -->
-		<!-- {% endif %} -->
-
-		<!-- <script type="text/javascript">
-            function bookButton()
-            {
-                document.getElementById("book-button").click(); 
-                // Simulates button click
-            }
-            function publisherButton()
-            {
-                document.getElementById("publisher-button").click(); 
-                // Simulates button click
-            }
-            function authorButton()
-            {
-                document.getElementById("author-button").click(); 
-                // Simulates button click
-            }
-        </script> -->
-
-
-
-       
+     
 
 <div id="wholePage" class="container">
 	
@@ -55,169 +22,25 @@
 		<div class="title">
 			<p class="text-center titlefont">Internet Book Database</p>
 		</div>
-		<div class="scrolldown">
-			<p class="text-center scrollfont">Scroll Down</p>
-		</div>
-			<div class="scrolldownbtn">
-					<a href="#bookid">
 
-					<svg class="scrolldownbtn" width="50px" height="25px" viewBox="0 0 50 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-						<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-							<g id="Desktop-Copy-3" transform="translate(-535.000000, -472.000000)" fill="#FFFFFF">
-								<path d="M535,472 L560,484.5 L585,472 L560,497 L535,472 Z" id="Scroll-Up"></path>
-							</g>
-						</g>
-					
-					</svg>
-				</a>
-			</div>
-			
-		
-			<div class="scrolldownbtnspace">
-				
-			</div>
-		
-	</div>
+		<!-------------------------------------------------
+			Buttons
+		--------------------------------------------------->
 
-
-
-	<div id="bookid"class="books page picture">
-			
-		<div class="innerdiv">
-			<div class="contentdiv">
-					{% for i in books %}
-			<div>
-			{{i.title}}
-			<br/> <br/>
-			</div>
-		{% endfor %}
-				<h1 class="pagetitle">Books</h1>
-				<div class="hr"><span></span></div>
-				<br>
-				<table>
-						<tr>
-							<td width="10%">Title</td>
-							<td width="15%">ISBN</td>
-							<td width="15%">Publication Date</td>
-							<td width="25%">Description</td>
-							<td width="15%">Publisher Name</td>
-							<td width="20%">Author Name</td>
-						</tr>
-						<tr>
-							<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
-							<td>9781781100486</td>
-							<td>2015-12-08</td>
-							<td><br>Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin!</td>
-							<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
-							<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
-						</tr>
-						<tr>
-							<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
-							<td>1429914564</td>
-							<td>2010-04-01</td>
-							<td> <br>Vin has learned to expect betrayal from everyone she meets, and gotten it. She will have to learn to trust, if Kel is to help her master powers of which she never dreamed. This saga dares to ask a simple question: What if the hero of prophecy fails?</td>
-							<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
-							<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
-						</tr>
-						<tr>
-							<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
-							<td>9781471104664 	</td>
-							<td>2012-12-11</td>
-							<td> <br>Taut, gripping and fascinating, it is a classic of its kind -- the true story of the events that changed the American presidency.</td>
-							<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
-							<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
-						</tr>
-				</table>
-			</div>
-		</div>
-	</div>
-	<div id="authorid" class="books page picture">
-			<div class="innerdiv">
-				<div class="contentdiv">
-					<h1 class="pagetitle">Author</h1>
-					<div class="hr"><span></span></div>
-					<br>
-					<table>
-							<tr>
-								<td width="20%">Name</td>
-								<td width="20%"> Born</td>
-								<td width="20%">Education</td>
-								<td width="20%">Wikipedia URL</td>
-								<td width="20%">Book Name</td>
-								<td width="20%">Author Name</td>
-							</tr>
-							<tr>
-								<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
-								<td>1965-07-31</td>
-								<td>University of Exeter</td>
-								<td>https://en.wikipedia.org/wiki/J._K._Rowling</td>
-								<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
-								<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
-							</tr>
-							<tr>
-								<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
-								<td>1974-12-19</td>
-								<td>Brigham Young University</td>
-								<td> https://en.wikipedia.org/wiki/Brandon_Sanderson</td>
-								<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
-								<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
-							</tr>
-							<tr>
-								<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
-								<td>1944-02-14</td>
-								<td>University of Maryland</td>
-								<td>https://en.wikipedia.org/wiki/Carl_Bernstein"</td>
-								<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
-								<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
-							</tr>
-					</table>
+		<section class= "container text-center">
+			<div class="row">
+				<div class="col-sm-4">
+					<a class="btn btn-primary" href="{{url_for('bookhome', pagenum = 10)}}" role="button">Books</a>
+				</div>
+				<div class="col-sm-4">
+					<a class="btn btn-light" href="{{url_for('authorhome',pagenum = 10)}}" role="button">Author</a>
+				</div>
+				<div class="col-sm-4">
+					<a class="btn btn-dark" href="{{url_for('publisherhome', pagenum = 10)}}" role="button">Publisher</a>
 				</div>
 			</div>
-		</div>
-		<div id="publisherid" class="books page picture">
-				<div class="innerdiv">
-					<div class="contentdiv">
-						<h1 class="pagetitle">Publisher</h1>
-						<div class="hr"><span></span></div>
-						<br>
-						<table>
-								<tr>
-									<td width="20%">Name</td>
-									<td width="20%">Founded</td>
-									<td width="20%">Location</td>
-									<td width="20%">Wikipedia URL</td>
-									<td width="20%">Book Name</td>
-									<td width="20%">Author Name</td>
-								</tr>
-								<tr>
-									<td><a href="{{url_for('pottermore')}}">Pottermore</a></td>
-									<td>NA</td>
-									<td>http://www.pottermore.com\nshop.pottermore.com</td>
-									<td>https://en.wikipedia.org/wiki/Pottermore</td>
-									<td><a href="{{url_for('sorcerors_stone')}}">Sorceror's Stone</a></td>
-									<td><a href="{{url_for('jk_rowling')}}">JK Rowling</a></td>
-								</tr>
-								<tr>
-									<td><a href="{{url_for('palgrave_mac')}}">Palgrave Macmillan</a></td>
-									<td>2000</td>
-									<td>London</td>
-									<td> https://en.wikipedia.org/wiki/Palgrave_Macmillan</td>
-									<td><a href="{{url_for('mistborn')}}">Mistborn</a></td>
-									<td><a href="{{url_for('brandon_sanderson')}}">Brandon Sanderson</a></td>
-								</tr>
-								<tr>
-									<td><a href="{{url_for('simon_schuster')}}">Simon Schuster</a></td>
-									<td>1924</td>
-									<td>120 Avenue of the Americas, Rockefeller Center, NY</td>
-									<td>https://en.wikipedia.org/wiki/Simon_%26_Schuste</td>
-									<td><a href="{{url_for('all_the_pres_men')}}">All the President's Men</a></td>
-									<td><a href="{{url_for('carl_bernstein')}}">Carl Bernstein</a></td>
-								</tr>
-						</table>
-					</div>
-				</div>
-			</div>
-
+		</section>		
+	</div>
 
 </div>
 
