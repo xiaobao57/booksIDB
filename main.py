@@ -51,10 +51,16 @@ def authorhome(pagenum):
     authorsCount = len(authors) // 10
     return render_template('authorhome.html', authors = authorsToPass, authorsCount = authorsCount)
 
-@app.route('/publisherhome')
-def publisherhome():
+@app.route('/publisherhome/<int:pagenum>')
+def publisherhome(pagenum):
     publishers = db.session.query(Publisher).all()
-    return render_template('publisherhome.html', publishers = publishers)
+    if pagenum < 11:
+        pubToPass = publishers[:pagenum]
+    else:
+        pubToPass = publishers[pagenum - 10:pagenum]
+
+    pubCount = len(publishers) // 10
+    return render_template('publisherhome.html', publishers = pubToPass, pubCount = pubCount )
 
 #----------------------------------------
 # Books, Authors, Publishers
