@@ -13,17 +13,17 @@
 					<td width="15%">Wiki URL</td>
 					<td width="15%">Founded</td>
 					<td width="25%">Parent Company</td>
-					<td width="15%">Books</td>
-					<td width="20%">Publisher Name</td>
+					<td width="15%">Book</td>
+					<td width="15%">Author</td>
 				</tr>
 				{% for i in publishers %}
 				<tr>
-					<td>{{i.name}}</td>
+					<td><a href="{{url_for('publisherinfo',passedid=i.id, page='publisher')}}">{{i.name}}</a></td>
 					<td>{{i.wiki_url}}</td>
 					<td>{{i.founded}}</td>
 					<td>{{i.parent_company}}...</td>
-					<td></td>
-					<td></td>
+					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('bookinfo',passedid=i.id, page='publisher')}}">Book</a></td></td>
+					<td><a href="{{url_for('authorinfo',passedid=i.id, page='publisher')}}">Author</a></td>
 				</tr>
 				{% endfor %}
 			</table>

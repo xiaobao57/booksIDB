@@ -56,26 +56,47 @@ def publisherhome():
 #----------------------------------------
 
 #@app.route('/bookhome/')
-@app.route('/bookhome/<int:bookid>')
-def bookinfo(bookid):
+@app.route('/book/<int:passedid><string:page>')
+def bookinfo(passedid, page):
  
-    book = db.session.query(Book).filter(Book.id == bookid).first()
+    if(page == "book"):
+        book = db.session.query(Book).filter(Book.id == passedid).first()
+    elif(page == "author"):
+        authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
+        book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
+    else: 
+        book = db.session.query(Book).filter(Book.id == passedid).first()
     #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
     #author = db.session.query(Author).filter(Author.id == authorID).first()
     return render_template('book.html', book = book) #, author = author)
 
-@app.route('/authorhome/<int:authorid>')
-def authorinfo(authorid):
+@app.route('/author/<int:passedid><string:page>')
+def authorinfo(passedid, page):
  
-    authorBook = db.session.query(authorlist).filter(authorlist.bookID == authorid).first()
-    author = db.session.query(Author).filter(Author.id == authorBook.authorID).first()
+    if(page == "book"):
+        authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
+        author = db.session.query(Author).filter(Author.id == authorBook.authorID).first()
+    elif(page == "author"):
+        author = db.session.query(Author).filter(Author.id == passedid).first()
+    else:
+        authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
+        book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
+        author = db.session.query(Author).filter(Author.id == book.id).first()
 
     return render_template('author.html', author = author)
 
-@app.route('/publisherhome/<int:publisherid>')
-def publisherinfo(publisherid):
+@app.route('/publisher/<int:passedid><string:page>')
+def publisherinfo(passedid, page):
 
-    publisher = db.session.query(Publisher).filter(Publisher.id == publisherid).first()
+    if(page == 'book'):
+        publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
+    elif(page=='author'):
+        authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
+        book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
+        publisher = db.session.query(Publisher).filter(Publisher.id == book.id).first()
+    else:
+        publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
+
     return render_template('publisher.html', publisher = publisher)
  
 ###Need to delete

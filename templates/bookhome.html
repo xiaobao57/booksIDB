@@ -1,81 +1,4 @@
-
-<head>
-<style type="text/css">
-.ms-list7-1010-main {
-	border: 1.5pt solid gray;
-}
-.ms-list7-1010-tl {
-	font-weight: bold;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: 1.5pt solid black;
-}
-.ms-list7-1010-left {
-	font-weight: bold;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
-.ms-list7-1010-top {
-	font-weight: bold;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: 1.5pt solid black;
-}
-.ms-list7-1010-even {
-	font-weight: normal;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
-.auto-style3 {
-	font-weight: normal;
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
-.auto-style4 {
-	font-weight: bold;
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
-.auto-style5 {
-	font-weight: bold;
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: 1.5pt solid black;
-}
-.auto-style6 {
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-}
-.auto-style7 {
-	font-family: "Times New Roman", Times, serif;
-}
-a {
-	color: #006666;
-}
-a:visited {
-	color: #669999;
-}
-</style>
-</head>
-
-<span class="auto-style7">{% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 </span>
@@ -97,12 +20,12 @@ a:visited {
 				</tr>
 				<caption class="auto-style7">{% for i in books %}
 				<tr>
-					<td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',bookid=i.id)}}">{{i.title}}</a></td>
+					<td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',passedid=i.id, page='book')}}">{{i.title}}</a></td>
 					<td class="auto-style3" style="height: 90px; width: 11%">{{i.isbn}}</td>
 					<td class="auto-style3" style="height: 90px; width: 15%">{{i.publisher_date}}</td>
 					<td class="auto-style3" style="height: 90px; width: 28%">{{i.description[0:100]}}...</td>
-					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',publisherid=i.publisherID)}}">{{i.publisherID}}</a></td>
-					<td class="auto-style3" style="height: 90px"><a href="{{url_for('authorinfo',authorid=i.id)}}">authors</a></td> 
+					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',passedid=i.publisherID, page='book')}}">Publisher</a></td>
+					<td class="auto-style3" style="height: 90px"><a href="{{url_for('authorinfo',passedid=i.id, page='book')}}">Author</a></td> 
 				</tr>
 				<caption class="auto-style7">{% endfor %}
 			</table>

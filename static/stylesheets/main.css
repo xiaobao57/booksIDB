@@ -1,0 +1,75 @@
+type="text/css">
+.ms-list7-1010-main {
+	border: 1.5pt solid gray;
+}
+.ms-list7-1010-tl {
+	font-weight: bold;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: 1.5pt solid black;
+}
+.ms-list7-1010-left {
+	font-weight: bold;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.ms-list7-1010-top {
+	font-weight: bold;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: 1.5pt solid black;
+}
+.ms-list7-1010-even {
+	font-weight: normal;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.auto-style3 {
+	font-weight: normal;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.auto-style4 {
+	font-weight: bold;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.auto-style5 {
+	font-weight: bold;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: 1.5pt solid black;
+}
+.auto-style6 {
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+}
+.auto-style7 {
+	font-family: "Times New Roman", Times, serif;
+}
+a {
+	color: #006666;
+}
+a:visited {
+	color: #669999;
+}
+body {
+	font-family: "Times New Roman", Times, serif;
+}

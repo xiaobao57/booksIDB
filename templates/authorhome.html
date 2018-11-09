@@ -12,18 +12,20 @@
 					<td width="10%">Name</td>
 					<td width="15%">Born</td>
 					<td width="15%">Alma Mater</td>
-					<td width="25%">Educaiton</td>
 					<td width="15%">Nationality</td>
 					<td width="20%">Picture</td>
+					<td class="auto-style5" style="width: 18%">Book</td>
+					<td class="auto-style5" style="width: 18%">Publisher</td>
 				</tr>
 				{% for i in authors %}
 				<tr>
-					<td><a href={{i.wiki_url|string}}>{{i.name}}</a></td>
+					<td><a href="{{url_for('authorinfo',passedid=i.id, page='author')}}">{{i.name}}</a></td>
 					<td>{{i.born}}</td>
 					<td>{{i.alma_mater}}</td>
-					<td>{{i.educaiton}}</td>
 					<td>{{i.nationality}}</td>
 					<td><img src={{i.image_url|string}} alt="No Picture :("></td>
+					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('bookinfo',passedid=i.id, page='author')}}">Author's Book</a></td>
+					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',passedid=i.id, page='author')}}">Author's Publisher</a></td>
 				</tr>
 				{% endfor %}
 			</table>
