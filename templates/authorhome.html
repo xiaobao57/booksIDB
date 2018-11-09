@@ -1,29 +1,124 @@
-{% extends 'base.html' %}
+
+<head>
+<style type="text/css">
+.ms-list7-1010-main {
+	border: 1.5pt solid gray;
+}
+.ms-list7-1010-tl {
+	font-weight: bold;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: 1.5pt solid black;
+}
+.ms-list7-1010-left {
+	font-weight: bold;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.ms-list7-1010-top {
+	font-weight: bold;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: 1.5pt solid black;
+}
+.ms-list7-1010-even {
+	font-weight: normal;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.ms-list7-1010-tr {
+	font-weight: bold;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: 1.5pt solid black;
+}
+.auto-style1 {
+	text-align: center;
+}
+.auto-style2 {
+	font-weight: normal;
+	text-align: center;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.auto-style3 {
+	font-weight: bold;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.auto-style4 {
+	font-weight: bold;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: 1.5pt solid black;
+}
+.auto-style5 {
+	font-family: "Times New Roman", Times, serif;
+}
+.auto-style6 {
+	font-weight: normal;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+}
+.auto-style7 {
+	border: 1.5pt solid gray;
+	margin-left: 10px;
+}
+</style>
+</head>
+
+<div class="auto-style1">
+	{% extends 'base.html' %}
 
 {% block content %}
+</div>
 <div id="authorid" class="books page picture">
 	<div class="innerdiv">
-		<div class="contentdiv">
-			<h1 class="pagetitle">Authors</h1>
-			<div class="hr"><span></span></div>
+		<div class="auto-style1">
+			<h1 class="auto-style1">Authors</h1>
+			<div class="hr"></div>
+			<div class="auto-style1">
 			<br>
-			<table>
+			</div>
+			<table class="auto-style7">
+				<!-- fpstyle: 30,010101101 -->
 				<tr>
-					<td width="10%">Name</td>
-					<td width="15%">Born</td>
-					<td width="15%">Alma Mater</td>
-					<td width="25%">Educaiton</td>
-					<td width="15%">Nationality</td>
-					<td width="20%">Picture</td>
+					<td width="10%" class="auto-style4">Name</td>
+					<td width="15%" class="auto-style4">Born</td>
+					<td width="15%" class="auto-style4">Alma Mater</td>
+					<td width="25%" class="auto-style4">Educaiton</td>
+					<td width="15%" class="auto-style4">Nationality</td>
+					<td width="20%" class="auto-style4">Picture</td>
 				</tr>
 				{% for i in authors %}
 				<tr>
-					<td><a href={{i.wiki_url|string}}>{{i.name}}</a></td>
-					<td>{{i.born}}</td>
-					<td>{{i.alma_mater}}</td>
-					<td>{{i.educaiton}}</td>
-					<td>{{i.nationality}}</td>
-					<td><img src={{i.image_url|string}} alt="No Picture :("></td>
+					<td class="auto-style3"><a href={{i.wiki_url|string}}>{{i.name}}</a></td>
+					<td class="auto-style6">{{i.born}}</td>
+					<td class="auto-style6">{{i.alma_mater}}</td>
+					<td class="auto-style6">{{i.education}}</td>
+					<td class="auto-style6">{{i.nationality}}</td>
+					<td class="auto-style2">
+					<img src={{i.image_url|string}} alt="No Picture :(" class="auto-style5"></td>
 				</tr>
 				{% endfor %}
 			</table>
@@ -31,4 +126,6 @@
 	</div>
 </div>
 
-{% endblock %}
+<div class="auto-style1">
+
+{% endblock %}</div>

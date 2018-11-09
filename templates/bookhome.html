@@ -32,15 +32,6 @@
 	border-top-style: none;
 	border-bottom: .75pt solid gray;
 }
-.auto-style3 {
-	font-weight: normal;
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: .75pt solid gray;
-}
 .auto-style4 {
 	font-weight: bold;
 	text-align: center;
@@ -49,15 +40,7 @@
 	border-right-style: none;
 	border-top-style: none;
 	border-bottom: .75pt solid gray;
-}
-.auto-style5 {
-	font-weight: bold;
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-	border-left-style: none;
-	border-right-style: none;
-	border-top-style: none;
-	border-bottom: 1.5pt solid black;
+	margin-left: 160px;
 }
 .auto-style6 {
 	text-align: center;
@@ -72,6 +55,30 @@ a {
 a:visited {
 	color: #669999;
 }
+.auto-style14 {
+	font-weight: bold;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: 1.5pt solid black;
+	margin-left: 160px;
+}
+.auto-style15 {
+	font-weight: normal;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid gray;
+	margin-left: 160px;
+}
+.auto-style16 {
+	border: 1.5pt solid gray;
+	margin-left: 10px;
+}
 </style>
 </head>
 
@@ -85,24 +92,24 @@ a:visited {
 			<h1 class="auto-style6">Books</h1>
 			<div class="hr"></div>
 			<br class="auto-style7">
-			<table class="ms-list7-1010-main">
+			<table class="auto-style16">
 				<!-- fpstyle: 30,010101100 -->
 				<tr>
-					<td class="auto-style5" style="width: 14%">Title</td>
-					<td class="auto-style5" style="width: 11%">ISBN</td>
-					<td class="auto-style5" style="width: 15%">Publication Date</td>
-					<td class="auto-style5" style="width: 28%">Description</td>
-					<td class="auto-style5" style="width: 18%">Publisher Name</td>
-					<td width="20%" class="auto-style5">Author Name</td>
+					<td class="auto-style14" style="width: 14%">Title</td>
+					<td class="auto-style14" style="width: 11%">ISBN</td>
+					<td class="auto-style14" style="width: 15%">Publication Date</td>
+					<td class="auto-style14" style="width: 28%">Description</td>
+					<td class="auto-style14" style="width: 18%">Publisher Name</td>
+					<td width="20%" class="auto-style14">Author Name</td>
 				</tr>
 				<caption class="auto-style7">{% for i in books %}
 				<tr>
 					<td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',bookid=i.id)}}">{{i.title}}</a></td>
-					<td class="auto-style3" style="height: 90px; width: 11%">{{i.isbn}}</td>
-					<td class="auto-style3" style="height: 90px; width: 15%">{{i.publisher_date}}</td>
-					<td class="auto-style3" style="height: 90px; width: 28%">{{i.description[0:100]}}...</td>
-					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',publisherid=i.publisherID)}}">{{i.publisherID}}</a></td>
-					<td class="auto-style3" style="height: 90px"><a href="{{url_for('authorinfo',authorid=i.id)}}">authors</a></td> 
+					<td class="auto-style15" style="height: 90px; width: 11%">{{i.isbn}}</td>
+					<td class="auto-style15" style="height: 90px; width: 15%">{{i.publisher_date}}</td>
+					<td class="auto-style15" style="height: 90px; width: 28%">{{i.description[0:100]}}...</td>
+					<td class="auto-style15" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',publisherid=i.publisherID)}}">{{i.publisherID}}</a></td>
+					<td class="auto-style15" style="height: 90px"><a href="{{url_for('authorinfo',authorid=i.id)}}">authors</a></td> 
 				</tr>
 				<caption class="auto-style7">{% endfor %}
 			</table>
