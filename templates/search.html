@@ -2,8 +2,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<caption class="auto-style7">{% for i in books %}
+<h1>Search Results</h1>
+<table class="auto-style16">
+        <!-- fpstyle: 30,010101100 -->
+        <tr>
+            <td class="auto-style4" style="width: 14%">Title</td>
+            <td class="auto-style4" style="width: 11%">ISBN</td>
+            <td class="auto-style4" style="width: 15%">Publication Date</td>
+            <td class="auto-style4" style="width: 28%">Description</td>
+            <td class="auto-style4" style="width: 18%">Publisher Name</td>
+            <td width="20%" class="auto-style4">Author Name</td>
+        </tr>
+        <caption class="auto-style7">{% for i in books %}
         <tr>
             <td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',passedid=i.id, page='book')}}">{{i.title}}</a></td>
             <td class="auto-style3" style="height: 90px; width: 11%">{{i.isbn}}</td>
@@ -12,7 +22,8 @@
             <td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',passedid=i.publisherID, page='book')}}">Publisher</a></td>
             <td class="auto-style3" style="height: 90px"><a href="{{url_for('authorinfo',passedid=i.id, page='book')}}">Author</a></td> 
         </tr>
-<caption class="auto-style7">{% endfor %}
+        <caption class="auto-style7">{% endfor %}
+    </table>
 
 <h1>{{results}}</h1>
 
