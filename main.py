@@ -14,10 +14,18 @@ from searchForm import SearchForm
 @app.route('/', methods=['GET', 'POST'])
 def index():
     books = db.session.query(Book).all()
-    search = SearchForm(request.form)
-    if request.method == 'POST':
-            return search_results(search)
+    search = searchHelper(request.form, request.method)
+
+
     return render_template('hello.html', form = search)
+
+def searchHelper(reqForm, reqMethod):
+    search = SearchForm(reqForm)
+    if reqMethod == 'POST':
+        search_results(search)
+    else:
+        return search
+
 
 @app.route('/about')
 def about():
@@ -31,12 +39,23 @@ def about():
 # Search
 #----------------------------------------
 @app.route('/search')
-def search_results(searchString):
+def search_results(searchForm):
     results = []
+    searchString = searchForm.data['search']
+    books = db.session.query(Book).all()
+    books[0].id
+    print(type(books[0]))
 
-    print(searchString)
+
+    bookReesults = []
+    # for book in books:
+    #     for 
+    #     if searchString in book:
+
+
+    
  
-    return render_template('search.html', results = searchString.data['search'])
+    return render_template('search.html', results = searchForm.data['search'])
 
 
 
