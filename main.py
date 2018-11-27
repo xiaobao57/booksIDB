@@ -11,12 +11,12 @@ import subprocess
 from wtforms import Form, StringField, SelectField
 from searchForm import SearchForm
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     books = db.session.query(Book).all()
     search = SearchForm(request.form)
     if request.method == 'POST':
-            return search(search)
+            return search_results(search)
     return render_template('hello.html', form = search)
 
 @app.route('/about')
@@ -30,13 +30,13 @@ def about():
 #----------------------------------------
 # Search
 #----------------------------------------
-@app.route('/search/<string:searchInput>', methods=['GET', 'POST'])
-def search(searchString):
+@app.route('/search')
+def search_results(searchString):
     results = []
 
-    
+    print(searchString)
  
-    return render_template('search.html', results = results)
+    return render_template('search.html', results = searchString.data['search'])
 
 
 
