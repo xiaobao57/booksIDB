@@ -40,7 +40,7 @@ def search_results(searchForm):
     search = SearchForm(request.form)
 
 
-    books = db.session.query(Book).filter(Book.title.contains(searchString))
+    books = db.session.query(Book).filter(Book.title.ilike("%"+searchString+"%"))
     print(searchString)
     print(books,"boks")
     
