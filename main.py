@@ -39,6 +39,7 @@ def search_results(searchForm):
     results = []
     searchString = searchForm.data['search']
     books = db.session.query(Book).filter(Book.title.contains(searchString))
+    print(searchString)
     print(books,"boks")
     
     bookReesults = []
