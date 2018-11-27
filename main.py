@@ -2,19 +2,22 @@
 # main.py
 # creating first flask application
 #-----------------------------------------
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from models import app, db, Book, Author, Publisher, authorlist
 from loadDB import loadBooks
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import subprocess
-
+from wtforms import Form, StringField, SelectField
+from searchForm import SearchForm
 
 @app.route('/')
 def index():
     books = db.session.query(Book).all()
-
-    return render_template('hello.html', books = books)
+    search = SearchForm(request.form)
+    if request.method == 'POST':
+            return search(search)
+    return render_template('hello.html', form = search)
 
 @app.route('/about')
 def about():
@@ -25,10 +28,23 @@ def about():
 	return render_template('about.html', output = "<br/>".join(output.split("\n")))
 
 #----------------------------------------
+# Search
+#----------------------------------------
+@app.route('/search/<string:searchInput>', methods=['GET', 'POST'])
+def search(searchString):
+    results = []
+
+    
+ 
+    return render_template('search.html', results = results)
+
+
+
+#----------------------------------------
 # Model Pages
 #----------------------------------------
 
-@app.route('/bookhome/<int:pagenum>')
+@app.route('/bookhome/<int:pagenum>',  methods=['GET', 'POST'])
 def bookhome(pagenum):
     books = db.session.query(Book).all()
     print(books)
@@ -110,7 +126,6 @@ def publisherinfo(passedid, page):
         publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
 
     return render_template('publisher.html', publisher = publisher)
- 
 
 
 if __name__ == "__main__":
