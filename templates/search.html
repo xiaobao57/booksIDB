@@ -1,3 +1,8 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
 <caption class="auto-style7">{% for i in books %}
         <tr>
             <td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',passedid=i.id, page='book')}}">{{i.title}}</a></td>
@@ -10,3 +15,5 @@
 <caption class="auto-style7">{% endfor %}
 
 <h1>{{results}}</h1>
+
+{% endblock %}

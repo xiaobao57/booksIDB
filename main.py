@@ -35,9 +35,11 @@ def about():
 @app.route('/search',methods=['GET', 'POST'])
 def search_results(searchForm):
 
-    print(searchForm.data['search'])
-    results = []
     searchString = searchForm.data['search']
+        
+    search = SearchForm(request.form)
+
+
     books = db.session.query(Book).filter(Book.title.contains(searchString))
     print(searchString)
     print(books,"boks")
@@ -50,7 +52,7 @@ def search_results(searchForm):
 
     
  
-    return render_template('search.html', books = books, results = searchString)
+    return render_template('search.html', books = books, results = searchString, form = search)
 
 
 
