@@ -14,18 +14,12 @@ from searchForm import SearchForm
 @app.route('/', methods=['GET', 'POST'])
 def index():
     books = db.session.query(Book).all()
-    search = searchHelper(request.form, request.method)
 
+    search = SearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
 
     return render_template('hello.html', form = search)
-
-def searchHelper(reqForm, reqMethod):
-    search = SearchForm(reqForm)
-    if reqMethod == 'POST':
-        search_results(search)
-    else:
-        return search
-
 
 @app.route('/about')
 def about():
@@ -38,15 +32,15 @@ def about():
 #----------------------------------------
 # Search
 #----------------------------------------
-@app.route('/search')
+@app.route('/search',methods=['GET', 'POST'])
 def search_results(searchForm):
+
+    print(searchForm.data['search'])
     results = []
     searchString = searchForm.data['search']
-    books = db.session.query(Book).all()
-    books[0].id
-    print(type(books[0]))
-
-
+    books = db.session.query(Book).filter(Book.title.contains(searchString))
+    print(books,"boks")
+    
     bookReesults = []
     # for book in books:
     #     for 
@@ -55,7 +49,7 @@ def search_results(searchForm):
 
     
  
-    return render_template('search.html', results = searchForm.data['search'])
+    return render_template('search.html', books = books, result = searchString)
 
 
 
@@ -65,6 +59,10 @@ def search_results(searchForm):
 
 @app.route('/bookhome/<int:pagenum>',  methods=['GET', 'POST'])
 def bookhome(pagenum):
+    search = SearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
+
     books = db.session.query(Book).all()
     print(books)
     if pagenum < 11:
@@ -74,7 +72,7 @@ def bookhome(pagenum):
 
     booksCount = books = len(db.session.query(Book).all()) // 10
 
-    return render_template('bookhome.html', books = booksToPass, booksCount = booksCount)
+    return render_template('bookhome.html', books = booksToPass, booksCount = booksCount, form = search)
 
 @app.route('/authorhome/<int:pagenum>')
 def authorhome(pagenum):
