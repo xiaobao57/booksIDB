@@ -49,7 +49,7 @@ def search_results(searchForm):
 
     
  
-    return render_template('search.html', books = books, result = searchString)
+    return render_template('search.html', books = books, results = searchString)
 
 
 
