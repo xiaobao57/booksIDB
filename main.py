@@ -17,7 +17,7 @@ def index():
 
     search = SearchForm(request.form)
     if request.method == 'POST':
-        return search_results(search)
+        return search_results(search, False)
 
     return render_template('hello.html', form = search)
 
@@ -33,7 +33,11 @@ def about():
 # Search
 #----------------------------------------
 @app.route('/search',methods=['GET', 'POST'])
-def search_results(searchForm):
+def search_results(searchForm, prev=False):
+
+    search = SearchForm(request.form)
+    if request.method == 'POST' and prev == True:
+        return search_results(search)
 
     searchString = searchForm.data['search']
         
