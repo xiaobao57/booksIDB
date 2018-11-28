@@ -14,10 +14,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://p
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-class Book(db.Model):
-    #This Book model contains title, description, isbn, publisher_date, google_id, image_url for properties.
-    #In addition, it also contains a publisherID that establishes a one-to-one relationship with a publisher.
-    
+class Book(db.Model):    
+    """
+    This Author model contains name, born, education, nationality, alma_mater, wiki_url, and image_url properties.
+    Authors will link many to many to Publishers.
+    """
+
     __tablename__ = 'book'
     
     id = Column(Integer, primary_key=True)
@@ -30,9 +32,11 @@ class Book(db.Model):
     publisherID = Column(Integer)
     
 class Author(db.Model):
-    #This Author model contains name, born, education, nationality, alma_mater, wiki_url, and image_url properties.
-    #Authors will link many to many to Publishers.
-
+    """
+    This Author model contains name, born, education, nationality, alma_mater, wiki_url, and image_url properties.
+    Authors will link many to many to Publishers.
+    """
+    
     __tablename__ = 'author'
     
     id = Column(Integer, primary_key=True)
@@ -46,8 +50,10 @@ class Author(db.Model):
        
     
 class Publisher(db.Model):
-    #This Publisher model contains name, wiki_url, parent_company, founded, description, image_url, and website.
-    #Publishers link many to many with Authors.
+    """
+    This Author model contains name, born, education, nationality, alma_mater, wiki_url, and image_url properties.
+    Authors will link many to many to Publishers.
+    """
   
     __tablename__ = 'publisher'
     
