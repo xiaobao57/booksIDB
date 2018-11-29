@@ -21,12 +21,12 @@
 						  <!-- <li><a class="btn btn-secondary" href={{url_for('bookinfo',passedid=author.id, page='book')}} role="button">Book &raquo;</a></li> -->
 							Books by this author
 							{% for i in books %}
-							<li><a class="btn btn-secondary" href={{url_for('bookinfo',passedid=i.id, page='book')}} role="button">{{i.title}} &raquo;</a></li>
+							<li><a class="btn btn-secondary" href={{url_for('bookinfo',passedid=i.id, page='author')}} role="button">{{i.title}} &raquo;</a></li>
 							{% endfor %}
 							-----------------------------<br>
 							Publishers used by this author<br>
 						  {% for i in publishers %}
-							<li><a class="btn btn-secondary" href={{url_for('publisherinfo',passedid=i.id, page='book')}} role="button">{{i.name}} &raquo;</a></li>
+							<li><a class="btn btn-secondary" href={{url_for('publisherinfo',passedid=i.id, page='author')}} role="button">{{i.name}} &raquo;</a></li>
 							{% endfor %}
 							<br>
 						  <li><a class="btn btn-secondary" href={{author.wiki_url|string}} role="button">Learn More &raquo;</a></li>

@@ -119,6 +119,14 @@ def bookinfo(passedid, page):
     search = SearchForm(request.form)
     if request.method == 'POST':
         return search_results(search)
+
+    authors = db.session.query(Author).join(authorlist, authorlist.authorID == Author.id).\
+        join(Book, Book.id == authorlist.bookID).\
+        filter(Book.publisherID == passedid).all()
+
+    publishers = db.session.query(Publisher).join(Book, Book.publisherID == Publisher.id).\
+        join(authorlist, authorlist.bookID == Book.id).\
+        filter(Publisher.id == passedid).all()
  
     if(page == "book"):
         book = db.session.query(Book).filter(Book.id == passedid).first()
@@ -129,29 +137,28 @@ def bookinfo(passedid, page):
         book = db.session.query(Book).filter(Book.id == passedid).first()
     #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
     #author = db.session.query(Author).filter(Author.id == authorID).first()
-    return render_template('book.html', book = book, form = search) #, author = author)
+    return render_template('book.html', book = book, publishers = publishers, authors = authors, form = search) #, author = author)
 
 @app.route('/author/<int:passedid><string:page>', methods=['GET', 'POST'])
 def authorinfo(passedid, page):
     search = SearchForm(request.form)
     if request.method == 'POST':
         return search_results(search)
+
+    books = db.session.query(Book).join(authorlist, authorlist.bookID == Book.id).\
+        filter(authorlist.authorID == passedid).all()
+
+    publishers = db.session.query(Publisher).join(Book, Book.publisherID == Publisher.id).\
+        join(authorlist, authorlist.bookID == Book.id).\
+        filter(Publisher.id == passedid).all()
  
     if(page == "book"):
         authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
         author = db.session.query(Author).filter(Author.id == authorBook.authorID).first()
     elif(page == "author"):
         author = db.session.query(Author).filter(Author.id == passedid).first()
-        books = db.session.query(Book).join(authorlist, authorlist.bookID == Book.id).\
-            filter(authorlist.authorID == passedid).all()
-
-        publishers = db.session.query(Publisher).join(Book, Book.publisherID == Publisher.id).\
-            join(authorlist, authorlist.bookID == Book.id).\
-            filter(Publisher.id == passedid).all()
     else:
-        authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
-        book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
-        author = db.session.query(Author).filter(Author.id == book.id).first()
+        author = db.session.query(Author).filter(Author.id == passedid).first()
 
     return render_template('author.html', author = author, books = books , publishers = publishers, form = search)
 
@@ -161,17 +168,18 @@ def publisherinfo(passedid, page):
     if request.method == 'POST':
         return search_results(search)
 
+    books = db.session.query(Book).filter(Book.publisherID == passedid).all()
+
+    authors = db.session.query(Author).join(authorlist, authorlist.authorID == Author.id).\
+        join(Book, Book.id == authorlist.bookID).\
+        filter(Book.publisherID == passedid).all()
+
     if(page == 'book'):
         publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
-    elif(page =='publisher'):
+    elif(page =='author'):
         authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
         book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
         publisher = db.session.query(Publisher).filter(Publisher.id == book.id).first()
-        books = db.session.query(Book).filter(Book.publisherID == passedid).all()
-
-        authors = db.session.query(Author).join(authorlist, authorlist.authorID == Author.id).\
-            join(Book, Book.id == authorlist.bookID).\
-            filter(Book.publisherID == passedid).all()
     else:
         publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
 
