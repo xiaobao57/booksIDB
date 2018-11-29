@@ -77,39 +77,48 @@ def bookinfo(passedid, page):
         authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
         book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
     else: 
-        book = db.session.query(Book).filter(Book.id == passedid).first()
-    #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
-    #author = db.session.query(Author).filter(Author.id == authorID).first()
-    return render_template('book.html', book = book) #, author = author)
+        book = db.session.query(Book).filter(Book.publisherID == passedid).first()
+    return render_template('book.html', book = book)
 
 @app.route('/author/<int:passedid><string:page>')
 def authorinfo(passedid, page):
- 
+    
     if(page == "book"):
         authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
         author = db.session.query(Author).filter(Author.id == authorBook.authorID).first()
     elif(page == "author"):
         author = db.session.query(Author).filter(Author.id == passedid).first()
+        books = db.session.query(Book).join(authorlist, authorlist.bookID == Book.id).\
+            filter(authorlist.authorID == passedid).all()
+
+        publishers = db.session.query(Publisher).join(Book, Book.publisherID == Publisher.id).\
+            join(authorlist, authorlist.bookID == Book.id).\
+            filter(Publisher.id == passedid).all()
     else:
         authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
         book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
         author = db.session.query(Author).filter(Author.id == book.id).first()
 
-    return render_template('author.html', author = author)
+    return render_template('author.html', author = author, books = books , publishers = publishers)
 
 @app.route('/publisher/<int:passedid><string:page>')
 def publisherinfo(passedid, page):
 
     if(page == 'book'):
         publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
-    elif(page=='author'):
+    elif(page =='publisher'):
         authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
         book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
         publisher = db.session.query(Publisher).filter(Publisher.id == book.id).first()
+        books = db.session.query(Book).filter(Book.publisherID == passedid).all()
+
+        authors = db.session.query(Author).join(authorlist, authorlist.authorID == Author.id).\
+            join(Book, Book.id == authorlist.bookID).\
+            filter(Book.publisherID == passedid).all()
     else:
         publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
 
-    return render_template('publisher.html', publisher = publisher)
+    return render_template('publisher.html', publisher = publisher, books = books, authors = authors)
  
 
 
