@@ -2,29 +2,136 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Search Results</h1>
-<table class="auto-style16">
-        <!-- fpstyle: 30,010101100 -->
-        <tr>
-            <td class="auto-style4" style="width: 14%">Title</td>
-            <td class="auto-style4" style="width: 11%">ISBN</td>
-            <td class="auto-style4" style="width: 15%">Publication Date</td>
-            <td class="auto-style4" style="width: 28%">Description</td>
-            <td class="auto-style4" style="width: 18%">Publisher Name</td>
-            <td width="20%" class="auto-style4">Author Name</td>
-        </tr>
-        <caption class="auto-style7">{% for i in books %}
-        <tr>
-            <td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',passedid=i.id, page='book')}}">{{i.title}}</a></td>
-            <td class="auto-style3" style="height: 90px; width: 11%">{{i.isbn}}</td>
-            <td class="auto-style3" style="height: 90px; width: 15%">{{i.publisher_date}}</td>
-            <td class="auto-style3" style="height: 90px; width: 28%">{{i.description[0:100]}}...</td>
-            <td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',passedid=i.publisherID, page='book')}}">Publisher</a></td>
-            <td class="auto-style3" style="height: 90px"><a href="{{url_for('authorinfo',passedid=i.id, page='book')}}">Author</a></td> 
-        </tr>
-        <caption class="auto-style7">{% endfor %}
-    </table>
 
-<h1>{{results}}</h1>
+<div class="btn-group" role="group">
+    <button type="button" id="book-grp-button" class="btn btn-secondary" onclick="showBooks()">Books</button>
+    <button type="button" id="author-grp-button" class="btn btn-secondary" onclick="showAuthors()">Authors</button>
+    <button type="button" id="publisher-grp-button" class="btn btn-secondary" onclick="showPublishers()">Publishers</button>
+</div>
+
+<!--Book Table-->
+<div id="books-table">
+    <h1>Books</h1>
+    <table class="auto-style16">
+            <!-- fpstyle: 30,010101100 -->
+            <tr>
+                <td class="auto-style4" style="width: 14%">Title</td>
+                <td class="auto-style4" style="width: 11%">ISBN</td>
+                <td class="auto-style4" style="width: 15%">Publication Date</td>
+                <td class="auto-style4" style="width: 28%">Description</td>
+                <td class="auto-style4" style="width: 18%">Publisher Name</td>
+                <td width="20%" class="auto-style4">Author Name</td>
+            </tr>
+            <caption class="auto-style7">{% for i in books %}
+            <tr>
+                <td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',passedid=i.id, page='book')}}">{{i.title}}</a></td>
+                <td class="auto-style3" style="height: 90px; width: 11%">{{i.isbn}}</td>
+                <td class="auto-style3" style="height: 90px; width: 15%">{{i.publisher_date}}</td>
+                <td class="auto-style3" style="height: 90px; width: 28%">{{i.description[0:100]}}...</td>
+                <td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',passedid=i.publisherID, page='book')}}">Publisher</a></td>
+                <td class="auto-style3" style="height: 90px"><a href="{{url_for('authorinfo',passedid=i.id, page='book')}}">Author</a></td> 
+            </tr>
+            <caption class="auto-style7">{% endfor %}
+    </table>        
+</div>
+
+<!--Publisher Table-->
+<div id="publishers-table">
+    <h1>Publishers</h1>
+    <table class="auto-style7">
+        <tr>
+            <td width="10%" class="auto-style4">Name</td>
+            <td width="15%" class="auto-style4">Date Founded</td>
+            <td width="15%" class="auto-style4">Website</td>
+            <td width="15%" class="auto-style4">Description</td>
+            <td width="10%" class="auto-style4">Book</td>
+            <td width="10%" class="auto-style4">Author</td>
+            <td width="20%" class="auto-style4">Picture</td>
+        </tr>
+        {% for i in publishers %}
+        <tr>
+            <td class="auto-style3"><a href="{{url_for('publisherinfo',passedid=i.id, page='publisher')}}">{{i.name}}</a></td>
+            <td class="auto-style3">{{i.founded}}</td>
+            <td class="auto-style3"><a href={{i.website|string}}>More Information</a></td>
+            {% if i.description != none %}
+            <td class="auto-style3">{{i.description[0:100]}}...</td>
+            {% else %}
+            <td class="auto-style3">No Description Available :(</td>
+            {% endif %}
+            <td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('bookinfo',passedid=i.id, page='publisher')}}">Book</a></td></td>
+            <td class="auto-style3"><a href="{{url_for('authorinfo',passedid=i.id, page='publisher')}}">Author</a></td>
+            <td class="auto-style2"><img src={{i.image_url|string}} alt="No Picture :(" class="auto-style5"></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!--Author Table-->
+<div id="authors-table">
+    <h1>Authors</h1>
+    <table class="auto-style7">
+        <!-- fpstyle: 30,010101101 -->
+        <tr>
+            <td width="10%" class="auto-style4">Name</td>
+            <td width="15%" class="auto-style4">Born</td>
+            <td width="15%" class="auto-style4">Alma Mater</td>
+            <td width="15%" class="auto-style4">Nationality</td>
+            <td width="20%" class="auto-style4">Picture</td>
+            <td width="10%" class="auto-style4">Book</td>
+            <td width="10%" class="auto-style4">Publisher</td>
+        </tr>
+        {% for i in authors %}
+        <tr>
+            <td class="auto-style3"><a href="{{url_for('authorinfo',passedid=i.id, page='author')}}">{{i.name}}</a></td>
+            <td class="auto-style3">{{i.born}}</td>
+            <td class="auto-style3">{{i.alma_mater}}</td>
+            <td class="auto-style3">{{i.nationality}}</td>
+            <td class="auto-style3"><img src={{i.image_url|string}} alt="No Picture :("></td>
+            <td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('bookinfo',passedid=i.id, page='author')}}">Author's Book</a></td>
+            <td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',passedid=i.id, page='author')}}">Author's Publisher</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<script>
+    var books = document.getElementById("books-table");
+    var authors = document.getElementById("authors-table");
+    var publishers = document.getElementById("publishers-table");
+
+    window.onload = function(){
+        showBooks();
+    }
+
+    function showBooks(){
+        books.style.display = "inline";
+        authors.style.display = "none";
+        publishers.style.display = "none";
+        
+        document.getElementById("book-grp-button").className = "btn btn-primary";
+        document.getElementById("author-grp-button").className = "btn btn-secondary";
+        document.getElementById("publisher-grp-button").className = "btn btn-secondary";
+    }
+
+    function showAuthors(){
+        books.style.display = "none";
+        authors.style.display = "inline";
+        publishers.style.display = "none";
+        
+        document.getElementById("book-grp-button").className = "btn btn-secondary";
+        document.getElementById("author-grp-button").className = "btn btn-primary";
+        document.getElementById("publisher-grp-button").className = "btn btn-secondary";
+    }
+
+    function showPublishers(){
+        books.style.display = "none";
+        authors.style.display = "none";
+        publishers.style.display = "inline";
+        
+        document.getElementById("book-grp-button").className = "btn btn-secondary";
+        document.getElementById("author-grp-button").className = "btn btn-secondary";
+        document.getElementById("publisher-grp-button").className = "btn btn-primary";
+    }
+</script>
 
 {% endblock %}

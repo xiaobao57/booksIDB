@@ -1,4 +1,3 @@
-#-----------------------------------------
 # main.py
 # creating first flask application
 #-----------------------------------------
@@ -6,6 +5,7 @@ from flask import Flask, render_template, request, redirect
 from models import app, db, Book, Author, Publisher, authorlist
 from loadDB import loadBooks
 from sqlalchemy import create_engine
+#-----------------------------------------
 from sqlalchemy.orm import sessionmaker
 import subprocess
 from wtforms import Form, StringField, SelectField
@@ -45,18 +45,15 @@ def search_results(searchForm, prev=False):
 
 
     books = db.session.query(Book).filter(Book.title.ilike("%"+searchString+"%"))
+    authors = db.session.query(Author).filter(Author.name.ilike("%"+searchString+"%"))
+    publishers = db.session.query(Publisher).filter(Publisher.name.ilike("%"+searchString+"%"))
     print(searchString)
-    print(books,"boks")
+    print(books,"books")
+    print(authors,"authors")
+    print(publishers,"publishers")
     
-    bookReesults = []
-    # for book in books:
-    #     for 
-    #     if searchString in book:
-
-
-    
- 
-    return render_template('search.html', books = books, results = searchString, form = search)
+    return render_template('search.html', books = books, authors = authors, publishers = publishers,
+                            form = search)
 
 
 
@@ -72,6 +69,7 @@ def bookhome(pagenum):
 
     books = db.session.query(Book).all()
     print(books)
+
     if pagenum < 11:
         booksToPass = books[:pagenum]
     else:
