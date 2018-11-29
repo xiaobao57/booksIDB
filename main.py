@@ -79,8 +79,12 @@ def bookhome(pagenum):
 
     return render_template('bookhome.html', books = booksToPass, booksCount = booksCount, form = search)
 
-@app.route('/authorhome/<int:pagenum>')
+@app.route('/authorhome/<int:pagenum>', methods=['GET', 'POST'])
 def authorhome(pagenum):
+    search = SearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
+        
     authors = db.session.query(Author).all()
     if pagenum < 11:
         authorsToPass = authors[:pagenum]
@@ -88,10 +92,14 @@ def authorhome(pagenum):
         authorsToPass = authors[pagenum - 10:pagenum]
 
     authorsCount = len(authors) // 10
-    return render_template('authorhome.html', authors = authorsToPass, authorsCount = authorsCount)
+    return render_template('authorhome.html', authors = authorsToPass, authorsCount = authorsCount, form = search)
 
-@app.route('/publisherhome/<int:pagenum>')
+@app.route('/publisherhome/<int:pagenum>', methods=['GET', 'POST'])
 def publisherhome(pagenum):
+    search = SearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
+
     publishers = db.session.query(Publisher).all()
     if pagenum < 11:
         pubToPass = publishers[:pagenum]
@@ -99,7 +107,7 @@ def publisherhome(pagenum):
         pubToPass = publishers[pagenum - 10:pagenum]
 
     pubCount = len(publishers) // 10
-    return render_template('publisherhome.html', publishers = pubToPass, pubCount = pubCount )
+    return render_template('publisherhome.html', publishers = pubToPass, pubCount = pubCount, form = search )
 
 #----------------------------------------
 # Books, Authors, Publishers
