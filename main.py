@@ -142,12 +142,18 @@ def authorinfo(passedid, page):
         author = db.session.query(Author).filter(Author.id == authorBook.authorID).first()
     elif(page == "author"):
         author = db.session.query(Author).filter(Author.id == passedid).first()
+        books = db.session.query(Book).join(authorlist, authorlist.bookID == Book.id).\
+            filter(authorlist.authorID == passedid).all()
+
+        publishers = db.session.query(Publisher).join(Book, Book.publisherID == Publisher.id).\
+            join(authorlist, authorlist.bookID == Book.id).\
+            filter(Publisher.id == passedid).all()
     else:
         authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
         book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
         author = db.session.query(Author).filter(Author.id == book.id).first()
 
-    return render_template('author.html', author = author, form=search)
+    return render_template('author.html', author = author, books = books , publishers = publishers, form = search)
 
 @app.route('/publisher/<int:passedid><string:page>', methods=['GET', 'POST'])
 def publisherinfo(passedid, page):
@@ -157,14 +163,20 @@ def publisherinfo(passedid, page):
 
     if(page == 'book'):
         publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
-    elif(page=='author'):
+    elif(page =='publisher'):
         authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
         book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
         publisher = db.session.query(Publisher).filter(Publisher.id == book.id).first()
+        books = db.session.query(Book).filter(Book.publisherID == passedid).all()
+
+        authors = db.session.query(Author).join(authorlist, authorlist.authorID == Author.id).\
+            join(Book, Book.id == authorlist.bookID).\
+            filter(Book.publisherID == passedid).all()
     else:
         publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
 
-    return render_template('publisher.html', publisher = publisher, form = search)
+    return render_template('publisher.html', publisher = publisher, books = books, authors = authors, form = search)
+ 
 
 
 if __name__ == "__main__":
