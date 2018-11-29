@@ -114,8 +114,11 @@ def publisherhome(pagenum):
 #----------------------------------------
 
 #@app.route('/bookhome/')
-@app.route('/book/<int:passedid><string:page>')
+@app.route('/book/<int:passedid><string:page>', methods=['GET', 'POST'])
 def bookinfo(passedid, page):
+    search = SearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
  
     if(page == "book"):
         book = db.session.query(Book).filter(Book.id == passedid).first()
@@ -126,10 +129,13 @@ def bookinfo(passedid, page):
         book = db.session.query(Book).filter(Book.id == passedid).first()
     #authorID = db.session.query(authorlist).filter(authorlist.bookID == bookid).first()
     #author = db.session.query(Author).filter(Author.id == authorID).first()
-    return render_template('book.html', book = book) #, author = author)
+    return render_template('book.html', book = book, form = search) #, author = author)
 
-@app.route('/author/<int:passedid><string:page>')
+@app.route('/author/<int:passedid><string:page>', methods=['GET', 'POST'])
 def authorinfo(passedid, page):
+    search = SearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
  
     if(page == "book"):
         authorBook = db.session.query(authorlist).filter(authorlist.bookID == passedid).first()
@@ -141,10 +147,13 @@ def authorinfo(passedid, page):
         book = db.session.query(Book).filter(Book.id == authorBook.bookID).first()
         author = db.session.query(Author).filter(Author.id == book.id).first()
 
-    return render_template('author.html', author = author)
+    return render_template('author.html', author = author, form=search)
 
-@app.route('/publisher/<int:passedid><string:page>')
+@app.route('/publisher/<int:passedid><string:page>', methods=['GET', 'POST'])
 def publisherinfo(passedid, page):
+    search = SearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
 
     if(page == 'book'):
         publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
@@ -155,7 +164,7 @@ def publisherinfo(passedid, page):
     else:
         publisher = db.session.query(Publisher).filter(Publisher.id == passedid).first()
 
-    return render_template('publisher.html', publisher = publisher)
+    return render_template('publisher.html', publisher = publisher, form = search)
 
 
 if __name__ == "__main__":
