@@ -2,11 +2,13 @@
 
 {% block content %}
 
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/instance.css') }}">
 <div class="jumbotron">
 	<div class="container">
 	  <h1 class="display-3">{{publisher.name}}</h1>
 	  <p>{{publisher.description}}</p>
-	  <p><a class="btn btn-primary btn-lg" href={{publisher.website|string}} role="button">Learn more &raquo;</a></p>
+	  <p class="lead">Date Founded: {{publisher.founded}}</p>
+	  <p><a class="btn btn-primary btn-lg" href={{publisher.website|string}} role="button">Learn more &raquo;</a><a class="btn btn-secondary" href={{publisher.wiki_url|string}} role="button">Wikipedia &raquo;</a></p>
 	</div>
   </div>
 
@@ -17,20 +19,32 @@
 		<p><img src={{publisher.image_url|string}} alt="No Picture :(" class="auto-style5"></p>
 	  </div>
 	  <div class="col-md-4">
-		<h2>Publisher Information</h2>
-		<p class="lead">Date Founded: {{publisher.founded}}</p>
-		<p>
-		Books published by this publisher<br>
-		{% for i in books %}
-			<a class="btn btn-secondary" href={{url_for('bookinfo',passedid=i.id, page='book')}} role="button">{{i.title}} &raquo;</a>
-		{% endfor %}
-		<br>
-		<br>Authors assoicated with this publisher<br>
-		{% for i in authors %}
-		<a class="btn btn-secondary" href={{url_for('authorinfo',passedid=i.id, page='author')}} role="button">{{i.name}} &raquo;</a>
-		{% endfor %}
-		</p>
-		<p><br><a class="btn btn-secondary" href={{publisher.wiki_url|string}} role="button">Wikipedia &raquo;</a></p>
+	  	<table>
+		  <tr>
+			  <td>			
+				<ul class="list-unstyled">
+					<li>Books: </li>
+					{% for i in books %}
+					<li><a class="list-ind1" href={{url_for('bookinfo',passedid=i.id, page='book')}} role="button">{{i.title}} &raquo;</a></li>
+					{% endfor %}
+				</ul> 
+			  </td>
+		  </tr>
+		</table>
+	  </div>
+	  <div class="col-md-4">
+	  	<table>
+		  <tr>
+			  <td>			
+				<ul class="list-unstyled">
+					<li>Authors: </li>
+					{% for i in authors %}
+					<li><a class="list-ind1" href={{url_for('authorinfo',passedid=i.id, page='author')}} role="button">{{i.name}} &raquo;</a></li>
+					{% endfor %}
+				</ul> 
+			  </td>
+		  </tr>
+		</table>
 	  </div>
 	</div>
 

@@ -21,13 +21,17 @@ def index():
 
     return render_template('hello.html', form = search)
 
-@app.route('/about')
+@app.route('/about', methods=['GET', 'POST'])
 def about():
-	p = subprocess.Popen(["python", "test.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-	out, err = p.communicate()
-	output=err+out
-	output = output.decode("utf-8") #convert from byte type to string type
-	return render_template('about.html', output = "<br/>".join(output.split("\n")))
+    search = SearchForm(request.form)
+    if request.method == 'POST':
+        return search_results(search)
+
+    p = subprocess.Popen(["python", "test.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+    out, err = p.communicate()
+    output=err+out
+    output = output.decode("utf-8") #convert from byte type to string type
+    return render_template('about.html', output = "<br/>".join(output.split("\n")), form=search)
 
 #----------------------------------------
 # Search
