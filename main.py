@@ -71,8 +71,7 @@ def bookhome(pagenum):
     if request.method == 'POST':
         return search_results(search)
 
-    books = db.session.query(Book).all()
-    print(books)
+    books = db.session.query(Book, authorlist, Author, Publisher).join(Publisher, Book.publisherID == Publisher.id).join(authorlist, Book.id == authorlist.bookID).join(Author, authorlist.authorID == Author.id).all()
 
     if pagenum < 11:
         booksToPass = books[:pagenum]

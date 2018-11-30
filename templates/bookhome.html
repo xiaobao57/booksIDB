@@ -21,12 +21,12 @@
 				</tr>
 				<caption class="auto-style7">{% for i in books %}
 				<tr>
-					<td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',passedid=i.id, page='book')}}">{{i.title}}</a></td>
-					<td class="auto-style3" style="height: 90px; width: 11%">{{i.isbn}}</td>
-					<td class="auto-style3" style="height: 90px; width: 15%">{{i.publisher_date}}</td>
-					<td class="auto-style3" style="height: 90px; width: 28%">{{i.description[0:100]}}...</td>
-					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',passedid=i.publisherID, page='book')}}">Publisher</a></td>
-					<td class="auto-style3" style="height: 90px"><a href="{{url_for('authorinfo',passedid=i.id, page='book')}}">Author</a></td> 
+					<td class="auto-style4" style="height: 90px; width: 14%"><a href="{{url_for('bookinfo',passedid=i.Book.id, page='book')}}">{{i.Book.title}}</a></td>
+					<td class="auto-style3" style="height: 90px; width: 11%">{{i.Book.isbn}}</td>
+					<td class="auto-style3" style="height: 90px; width: 15%">{{i.Book.publisher_date}}</td>
+					<td class="auto-style3" style="height: 90px; width: 28%">{{i.Book.description[0:100]}}...</td>
+					<td class="auto-style3" style="height: 90px; width: 18%"><a href="{{url_for('publisherinfo',passedid=i.Book.publisherID, page='book')}}">{{i.Publisher.name}}</a></td>
+					<td class="auto-style3" style="height: 90px"><a href="{{url_for('authorinfo',passedid=i.Book.id, page='book')}}">{{i.Author.name}}</a></td> 
 				</tr>
 				<caption class="auto-style7">{% endfor %}
 			</table>
