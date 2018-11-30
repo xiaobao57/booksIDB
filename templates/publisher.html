@@ -24,13 +24,13 @@
 		{% for i in books %}
 			<a class="btn btn-secondary" href={{url_for('bookinfo',passedid=i.id, page='book')}} role="button">{{i.title}} &raquo;</a>
 		{% endfor %}
-		-----------------------------<br>
-		Authors assoicated with this publisher<br>
+		<br>
+		<br>Authors assoicated with this publisher<br>
 		{% for i in authors %}
 		<a class="btn btn-secondary" href={{url_for('authorinfo',passedid=i.id, page='author')}} role="button">{{i.name}} &raquo;</a>
 		{% endfor %}
 		</p>
-		<p><a class="btn btn-secondary" href={{publisher.wiki_url|string}} role="button">Wikipedia &raquo;</a></p>
+		<p><br><a class="btn btn-secondary" href={{publisher.wiki_url|string}} role="button">Wikipedia &raquo;</a></p>
 	  </div>
 	</div>
 
